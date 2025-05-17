@@ -1,0 +1,15 @@
+{
+  "id_str": "1234567890",
+  "text": "Exemplo de tweet sobre o BBB!",
+  "created_at": "2025-05-17T12:00:00.000Z",
+  "retweet_count": 10,
+  "reply_count": 5,
+  "like_count": 50,
+  "quote_count": 2,
+  "lang": "pt",
+  "hashtags": ["BBB2025", "ForaFulano"],
+  "retweeted_status": {"id_str": "1234567890"}
+
+
+  
+}
