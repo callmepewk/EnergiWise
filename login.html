@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnergyWise - Login</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <main class="form-login">
+    <h2>Crie sua conta</h2>
+    <label>Idioma:
+      <select>
+        <option value="pt">Português</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="zh">中文</option>
+      </select>
+    </label>
+    <label>Tipo de Conta:
+      <select id="tipoConta" onchange="exibirCampos()">
+        <option value="fisica">Pessoa Física</option>
+        <option value="juridica">Empresa (CNPJ)</option>
+      </select>
+    </label>
+
+    <form id="formularioLogin">
+      <!-- campos dinâmicos inseridos via JS -->
+    </form>
+
+    <div class="imagem-preview">
+      <img src="https://via.placeholder.com/150" alt="Foto de Perfil">
+      <p>A imagem pode ser adicionada depois.</p>
+      <input type="file">
+    </div>
+
+    <button type="submit" onclick="carregarSistema()">Criar Conta</button>
+
+    <div id="carregando" style="display:none; text-align:center;">
+      <p>Carregando seu painel...</p>
+    </div>
+  </main>
+</body>
+</html>
