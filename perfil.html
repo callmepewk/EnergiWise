@@ -7,35 +7,68 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="centralizado">
-    <nav class="menu-icones">
-      <a href="index.html" class="icone">Menu</a>
-      <a href="servicos.html" class="icone">Serviços</a>
-      <a href="produtos.html" class="icone">Produtos</a>
-      <a href="#" class="icone">Idioma</a>
-      <a href="perfil.html" class="icone">Perfil</a>
+<header class="centralizado">
+  <div class="logo-centro">
+    <a href="index.html" class="logo-texto">⚡ EnergyWise ⚡</a>
+  </div>
+  <br>
+  <nav class="menu-icones">
+    <a href="index.html" class="icone">Menu</a>
+    <a href="servicos.html" class="icone">Serviços</a>
+    <a href="produtos.html" class="icone">Produtos</a>
+    <a href="perfil.html" class="icone">Perfil</a>
+  </nav>
+</header>
+        <section>
+         <a href="#" class="icone">Idioma</a>
+      <select>
+        <option value="pt">Português</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="zh">中文</option>
+        <option value="ar">العربية</option>
+      </select>
+    </section>
     </nav>
-    <div class="logo-centro">
-      <a href="index.html">EnergyWise</a>
-    </div>
   </header>
-
   <main>
+    <section>
     <h2>Perfil do Usuário</h2>
+    </section>
     <form class="form-perfil">
       <div class="imagem-preview">
         <img src="https://via.placeholder.com/150" alt="Foto de Perfil">
         <p class="info">A imagem pode ser alterada depois.</p>
         <input type="file">
       </div>
+      <br>
+      <section>
       <label>Nome:<input type="text"></label>
+      <br>
+      <br>
       <label>Email:<input type="email"></label>
+      <br>
+      <br>
       <label>Telefone:<input type="tel"></label>
+      <br>
+      <br>
       <label>CPF ou RG / CNPJ:<input type="text"></label>
+      <br>
+      <br>
       <label>País:<input type="text"></label>
+      <br>
+      <br>
       <label>Estado:<input type="text"></label>
+      <br>
+      <br>
       <label>Cidade:<input type="text"></label>
+      <br>
+      <br>
       <label>CEP:<input type="text"></label>
+      <br>
+      <br>
       <label>Tipo de Acesso:
         <select>
           <option>Residencial / Pessoal</option>
@@ -45,11 +78,24 @@
           <option>Órgão Governamental</option>
         </select>
       </label>
+      <br>
+      <br>
       <button type="submit">Salvar</button>
+    </section>
+      <br>
+      <br>
     </form>
   </main>
 
   <footer>
+    <h3>Contato</h3>
+    <p>Email: contato@energywise.com</p>
+    <p>Telefone: +55 (11) 99999-9999</p>
+    <p>Redes Sociais:
+      <a href="#">Instagram</a> |
+      <a href="#">Facebook</a> |
+      <a href="#">Twitter</a>
+    </p>
     <p>&copy; 2025 EnergyWise</p>
   </footer>
 </body>
