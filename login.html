@@ -8,7 +8,20 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  <main class="form-login">
+  <header class="centralizado">
+    <div class="logo-centro">
+      <a href="index.html" class="logo-texto">⚡ EnergyWise ⚡</a>
+    </div>
+    <br>
+    <nav class="menu-icones">
+      <a href="index.html" class="icone">Menu</a>
+      <a href="servicos.html" class="icone">Serviços</a>
+      <a href="produtos.html" class="icone">Produtos</a>
+      <a href="perfil.html" class="icone">Perfil</a>
+    </nav>
+  </header>
+
+  <main class="centralizado login-container">
     <h2>Crie sua conta</h2>
     <label>Idioma:
       <select>
@@ -27,13 +40,11 @@
       </select>
     </label>
 
-    <form id="formularioLogin">
-      <!-- campos dinâmicos inseridos via JS -->
-    </form>
+    <form id="formularioLogin" class="form-perfil"></form>
 
     <div class="imagem-preview">
       <img src="https://via.placeholder.com/150" alt="Foto de Perfil">
-      <p>A imagem pode ser adicionada depois.</p>
+      <p class="info">A imagem pode ser adicionada depois.</p>
       <input type="file">
     </div>
 
@@ -43,5 +54,9 @@
       <p>Carregando seu painel...</p>
     </div>
   </main>
+
+  <footer>
+    <p>&copy; 2025 EnergyWise</p>
+  </footer>
 </body>
 </html>
