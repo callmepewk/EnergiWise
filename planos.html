@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Planos - EnergyWise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        main {
+            margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Times New Roman', Times, serif;
+            color: white;
+        }
+        .planos-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .plano {
+            background-color: rgba(35, 175, 145, 0.2);
+            border: 2px solid rgb(35, 175, 145);
+            border-radius: 12px;
+            padding: 30px 25px;
+            width: 260px;
+            box-sizing: border-box;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .plano:hover {
+            background-color: rgba(35, 175, 145, 0.4);
+            cursor: pointer;
+        }
+        .plano h3 {
+            font-weight: 300;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        .plano p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+        .preco {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: rgb(35, 175, 145);
+        }
+        .btn-assinar {
+            background-color: rgb(35, 175, 145);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 12px 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-assinar:hover {
+            background-color: rgb(27, 135, 112);
+        }
+    </style>
+</head>
+<body>
+
+<header>   
+    <div id="title">
+        <h1>Energy</h1>
+        <h1>Wise</h1>
+    </div>
+
+    <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="aboutus.html">Sobre Nós</a></li>
+        <li><a href="productsandservices.html">Produtos e Serviços</a></li>
+        <li><a href="contact.html">Contato</a></li>
+        <li><a href="account.html" id="account-btn">Conta</a></li>
+        <a href="#" class="icone">Idioma</a>
+        <select>
+            <option value="pt" selected>Português</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="zh">中文</option>
+            <option value="ar">العربية</option>
+        </select>
+    </ul>
+</header>
+
+<main>
+    <h2 style="font-size: 50px; font-weight: 300; margin-bottom: 40px; text-align: center;">Escolha seu Plano</h2>
+    
+    <div class="planos-container">
+        <div class="plano">
+            <h3>Básico</h3>
+            <p>Acesso limitado a funcionalidades essenciais.</p>
+            <div class="preco">R$ 29,90/mês</div>
+            <button class="btn-assinar" onclick="alert('Plano Básico selecionado!')">Assinar</button>
+        </div>
+        <div class="plano">
+            <h3>Intermediário</h3>
+            <p>Inclui recursos avançados e suporte prioritário.</p>
+            <div class="preco">R$ 59,90/mês</div>
+            <button class="btn-assinar" onclick="alert('Plano Intermediário selecionado!')">Assinar</button>
+        </div>
+        <

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Perfil - EnergyWise</title>
+    <title>Cadastro - EnergyWise</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -34,31 +34,21 @@
     </ul>
 </header>
 
-<main style="margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto; color: white; font-family: 'Times New Roman', Times, serif;">
-    <h2 style="font-size: 50px; font-weight: 300; margin-bottom: 30px;">Bem-vindo, <span style="color: rgb(35, 175, 145);" id="user-name">[Nome]</span></h2>
-    <ul style="list-style: none; padding: 0; font-size: 20px;">
-        <li style="margin-bottom: 20px;"><a href="/editar-perfil.html" style="color: white; text-decoration: none;">Editar perfil</a></li>
-        <li style="margin-bottom: 20px;"><a href="/planos.html" style="color: white; text-decoration: none;">Mudar tipo de conta</a></li>
-        <li>
-            <button onclick="confirmarSaida()" class="link-button">Sair da conta</button>
-        </li>
-    </ul>
+<main style="margin-top: 40px; display: flex; justify-content: center;">
+    <form action="https://formsubmit.co/energiwise@gmail.com" method="POST" style="width: 400px;">
+        <h2 style="font-size: 40px; margin-bottom: 20px; font-weight: 300; font-family: 'Times New Roman', Times, serif; color: white;">
+            Cadastro
+        </h2>
+        <input type="text" name="nome" placeholder="Nome completo" required />
+        <input type="email" name="email" placeholder="Seu e-mail" required />
+        <input type="password" name="senha" placeholder="Crie uma senha" required />
+        <input type="submit" value="Cadastrar" />
+        
+        <!-- Evita spam -->
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="/perfil.html" />
+    </form>
 </main>
-
-<script>
-  // Exemplo básico para pegar nome do usuário salvo no sessionStorage (ajuste conforme sua lógica)
-  const nomeSalvo = sessionStorage.getItem('nomeUsuario');
-  if(nomeSalvo) {
-    document.getElementById('user-name').textContent = nomeSalvo;
-  }
-  
-  function confirmarSaida() {
-    if (confirm("Deseja realmente sair?")) {
-      sessionStorage.clear();
-      window.location.href = "/index.html";
-    }
-  }
-</script>
 
 <footer style="margin-top: 100px; text-align: center; color: white;">
     <p>&copy; 2025 EnergyWise</p>
