@@ -1,0 +1,156 @@
+body{
+    background-color: #222a30;
+    color: white;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#title{
+    flex-direction: column;
+    line-height: 10px;
+}
+
+li{
+    display: inline-block;
+    margin: 20px;
+    text-decoration: none;
+}
+
+a{
+   color: white; 
+}
+
+a:hover{
+    color: rgb(35, 175, 145);
+    transition: 0.3s all;
+}
+
+#account-btn{
+    border: 2px solid rgb(35, 175, 145);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#account-btn:hover{
+    background-color: rgb(35, 175, 145);
+    color: white;
+    transition: 0.3s all;
+}
+
+h1{
+    font-size: 80px;
+    font-weight: 100; 
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    align-items: center;
+}
+
+h2{
+    font-size: 50px;
+    line-height: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 300;
+}
+
+span{
+    color: rgb(35, 175, 145);
+}
+
+p{
+    line-height: 20px;
+    max-width: 500px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+img{
+    width: 600px;
+    height: 600px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    gap: 10px;
+}
+
+form [type="submit"]{
+    height: 50px;
+    width: 50%;
+    background-color: rgb(35, 175, 145);
+    color: white;
+    font: bold;
+}
+
+form [type="submit"]:hover{
+  cursor: pointer;
+  background-color: white;
+    color: rgb(35, 175, 145);
+    transition: 0.3s all;
+}
+
+
+input{
+    margin-top: 10px;
+    height: 20px;
+    padding: 15px;
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 760px){
+
+    body{
+        background-color: #222a30;
+    }
+    header{
+        flex-direction: column;
+    }
+
+    main{
+        flex-direction: column;
+    }
+
+    h2{
+        font-size: 30px;
+    }
+
+    form{
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    input{
+        align-self:center ;
+    }
+
+    img{
+        margin-top: 0px;
+    }
+
+    p{
+        margin-top: 50px;
+    }
+
+    ul{
+        text-align: center;
+    }
+}
