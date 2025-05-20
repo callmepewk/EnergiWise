@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
     <style>
+        .language-btn img,
+        .language-dropdown img {
+            width: 24px;
+            height: auto;
+            vertical-align: middle;
+        }
         main {
             margin-top: 40px;
             max-width: 900px;
@@ -83,33 +89,41 @@
         <li><a href="productsandservices.html">Produtos e Serviços</a></li>
         <li><a href="contact.html">Contato</a></li>
         <li><a href="account.html" id="account-btn">Conta</a></li>
-        <a href="#" class="icone">Idioma</a>
-        <select>
-            <option value="pt" selected>Português</option>
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="de">Deutsch</option>
-            <option value="zh">中文</option>
-            <option value="ar">العربية</option>
-        </select>
+<div class="language-selector">
+    <button class="language-btn">
+        <img src="https://flagcdn.com/w40/br.png" alt="Português" />
+        Português <i class="fa-solid fa-chevron-down"></i>
+    </button>
+    <ul class="language-dropdown">
+        <li><img src="https://flagcdn.com/w40/br.png" alt="Português" /> Português</li>
+        <li><img src="https://flagcdn.com/w40/gb.png" alt="English" /> English</li>
+        <li><img src="https://flagcdn.com/w40/es.png" alt="Español" /> Español</li>
+        <li><img src="https://flagcdn.com/w40/fr.png" alt="Français" /> Français</li>
+        <li><img src="https://flagcdn.com/w40/de.png" alt="Deutsch" /> Deutsch</li>
+        <li><img src="https://flagcdn.com/w40/cn.png" alt="中文" /> 中文</li>
+        <li><img src="https://flagcdn.com/w40/sa.png" alt="العربية" /> العربية</li>
+    </ul>
+    
+</div>
     </ul>
 </header>
 
 <main>
-    <h2 style="font-size: 50px; font-weight: 300; margin-bottom: 40px; text-align: center;">Escolha seu Plano</h2>
-    
+    <div>
+    <h2 style="font-size: 50px; font-weight: 300; margin-bottom: 40px; text-align: center;">Escolha seu </h2>
+    <span style="color: rgb(35, 175, 145);font-size: 50px" id="user-name">Plano</span>
+    </div>
     <div class="planos-container">
         <div class="plano">
             <h3>Básico</h3>
             <p>Acesso limitado a funcionalidades essenciais.</p>
-            <div class="preco">R$ 29,90/mês</div>
+            <div class="preco">R$ 0,00/mês</div>
             <button class="btn-assinar" onclick="alert('Plano Básico selecionado!')">Assinar</button>
         </div>
         <div class="plano">
-            <h3>Intermediário</h3>
+            <h3>Premium</h3>
             <p>Inclui recursos avançados e suporte prioritário.</p>
             <div class="preco">R$ 59,90/mês</div>
             <button class="btn-assinar" onclick="alert('Plano Intermediário selecionado!')">Assinar</button>
         </div>
-        <
+        
