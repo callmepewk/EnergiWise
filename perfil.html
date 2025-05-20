@@ -6,6 +6,14 @@
     <title>Perfil - EnergyWise</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      .language-btn img,
+      .language-dropdown img {
+          width: 24px;   /* largura desejada */
+          height: auto;  /* mantém a proporção */
+          vertical-align: middle; /* alinha melhor com o texto */
+      }
+    </style>
 </head>
 <body>
 
@@ -21,17 +29,24 @@
         <li><a href="productsandservices.html">Produtos e Serviços</a></li>
         <li><a href="contact.html">Contato</a></li>
         <li><a href="account.html" id="account-btn">Conta</a></li>
-        <a href="#" class="icone">Idioma</a>
-        <select>
-            <option value="pt" selected>Português</option>
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="de">Deutsch</option>
-            <option value="zh">中文</option>
-            <option value="ar">العربية</option>
-        </select>
     </ul>
+
+    <div class="language-selector">
+        <button class="language-btn">
+            <img src="https://flagcdn.com/w40/br.png" alt="Português" />
+            Português <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <ul class="language-dropdown">
+            <li><img src="https://flagcdn.com/w40/br.png" alt="Português" /> Português</li>
+            <li><img src="https://flagcdn.com/w40/gb.png" alt="English" /> English</li>
+            <li><img src="https://flagcdn.com/w40/es.png" alt="Español" /> Español</li>
+            <li><img src="https://flagcdn.com/w40/fr.png" alt="Français" /> Français</li>
+            <li><img src="https://flagcdn.com/w40/de.png" alt="Deutsch" /> Deutsch</li>
+            <li><img src="https://flagcdn.com/w40/cn.png" alt="中文" /> 中文</li>
+            <li><img src="https://flagcdn.com/w40/sa.png" alt="العربية" /> العربية</li>
+        </ul>
+    </div>
+
 </header>
 <main style="margin-top: 40px; max-width: 900px; margin-left: auto; margin-right: auto; color: white; font-family: 'Times New Roman', Times, serif;">
   <div style="display: flex; justify-content: flex-start; align-items: flex-start; gap: 60px; flex-wrap: wrap;">

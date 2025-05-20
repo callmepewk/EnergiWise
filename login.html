@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnergyWise - Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <style>
+    .language-btn img,
+    .language-dropdown img {
+        width: 24px;   /* largura desejada */
+        height: auto;  /* mantém a proporção */
+        vertical-align: middle; /* alinha melhor com o texto */
+    }
+  </style>
+</head>
+
+<body>
+  <header class="centralizado">
+    <div class="logo-centro">
+      <a href="index.html" class="logo-texto">EnergyWise</a>
+    </div>
+    <br>
+    <nav class="menu-icones">
+      <a href="index.html" class="icone">Menu</a>
+      <a href="servicos.html" class="icone">Serviços</a>
+      <a href="produtos.html" class="icone">Produtos</a>
+      <a href="perfil.html" class="icone">Perfil</a>
+    </nav>
+  </header>
+
+  <main class="centralizado login-container">
+    <h2>Crie sua conta</h2>
+    <div class="language-selector">
+        <button class="language-btn">
+            <img src="https://flagcdn.com/w40/br.png" alt="Português" />
+            Português <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <ul class="language-dropdown">
+            <li><img src="https://flagcdn.com/w40/br.png" alt="Português" /> Português</li>
+            <li><img src="https://flagcdn.com/w40/gb.png" alt="English" /> English</li>
+            <li><img src="https://flagcdn.com/w40/es.png" alt="Español" /> Español</li>
+            <li><img src="https://flagcdn.com/w40/fr.png" alt="Français" /> Français</li>
+            <li><img src="https://flagcdn.com/w40/de.png" alt="Deutsch" /> Deutsch</li>
+            <li><img src="https://flagcdn.com/w40/cn.png" alt="中文" /> 中文</li>
+            <li><img src="https://flagcdn.com/w40/sa.png" alt="العربية" /> العربية</li>
+        </ul>
+    </div>
+
+    <label>Tipo de Conta:
+      <select id="tipoConta" onchange="exibirCampos()">
+        <option value="fisica">Pessoa Física</option>
+        <option value="juridica">Empresa (CNPJ)</option>
+      </select>
+    </label>
+
+    <form id="formularioLogin" class="form-perfil"></form>
+
+    <div class="imagem-preview">
+      <img src="https://via.placeholder.com/150" alt="Foto de Perfil">
+      <p class="info">A imagem pode ser adicionada depois.</p>
+      <input type="file">
+    </div>
+
+    <button type="submit" onclick="carregarSistema()">Criar Conta</button>
+
+    <div id="carregando" style="display:none; text-align:center;">
+      <p>Carregando seu painel...</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 EnergyWise</p>
+  </footer>
+</body>
+</html>
