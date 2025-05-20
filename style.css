@@ -61,6 +61,23 @@ main{
     margin-top: 10px;
     align-items: center;
 }
+.logo-float {
+    float: right;
+    margin-left: 20px;
+    width:600px;
+    max-width: 300px;
+    height: auto;
+}
+.logo-article {
+  margin-left: 40px;   /* distância entre o texto e a imagem */
+}
+
+.logo-article img {
+  margin-left:40px;
+  width: 600px;       
+  height: auto;        
+}
+
 
 h2{
     font-size: 50px;
@@ -215,4 +232,58 @@ textarea {
 .link-button:hover {
   color: rgb(35, 175, 145);
   transition: 0.3s all;
+}
+.language-selector {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.language-btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding:10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.language-btn img {
+    width: 24px;
+    height: auto;
+    border-radius: 16px;
+}
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    border: 1px solid #444;
+    list-style: none;
+    padding: 0px;
+    margin-top: 5px;
+    width: 160px;
+    height:auto;
+    z-index: 1000;
+    border-radius: 5px;
+}
+
+.language-dropdown li {
+    padding: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.language-dropdown li:hover {
+    background-color: #444;
+}
+
+.language-selector:hover .language-dropdown {
+    display: block;
 }

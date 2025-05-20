@@ -6,6 +6,248 @@
     <title>Cadastro - EnergyWise</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
+    <style>
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        select {
+            appearance: none;
+            background-color: #fff;
+        }
+
+        form {
+            width: 600px;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            text-align:center;
+        }
+        form h2 {
+        margin-bottom: 30px;
+        }
+        .endereco {
+            margin-top: 16px;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 4px;
+        }
+
+        .btn-add-endereco {
+            background-color: #04aa6d;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        input[type="submit"] {
+    background-color: #04aa6d; /* cor verde semelhante */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 20px; /* arredondado */
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto 0 auto;
+}
+
+input[type="submit"]:hover {
+    background-color: #038f58; /* tom um pouco mais escuro no hover */
+}
+input[name="senha"] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.senha-container {
+  position: relative;
+  width: 100%;
+  margin: 8px 0;
+}
+
+.senha-container input[name="senha"] {
+  width: 100%;
+  padding: 12px 40px 12px 12px; /* padding direito maior para o botão */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.toggle-senha {
+  position: absolute;
+  top: 50%;
+  right: 12px; /* mesmo padding da direita do input */
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 18px;
+  padding: 0;
+}
+
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    gap: 10px; /* espaço entre checkbox e texto */
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkbox-label a {
+    color: aqua;
+    text-decoration: underline;
+}
+.language-btn img,
+.language-dropdown img {
+    width: 24px;   /* largura desejada */
+    height: auto;  /* mantém a proporção */
+    vertical-align: middle; /* alinha melhor com o texto */
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  color: #000;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  text-align: center;
+}
+.modal-content p {
+  padding: 40px;
+  text-align: center;
+}
+
+
+.fechar {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.fechar:hover {
+  color: #000;
+}
+.link-button {
+  background: none;
+  border: none;
+  color: aqua;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0;
+}
+
+
+    </style>
+    <script>
+        function exibirCamposConta() {
+            const tipoConta = document.getElementById('tipo-conta').value;
+            const secaoTipoPessoa = document.getElementById('secao-tipo-pessoa');
+            const secaoCampos = document.getElementById('secao-campos');
+            secaoTipoPessoa.style.display = tipoConta !== '' ? 'block' : 'none';
+            secaoCampos.innerHTML = '';
+        }
+
+        function exibirCamposPessoa() {
+            const tipoPessoa = document.getElementById('tipo-pessoa').value;
+            const secaoCampos = document.getElementById('secao-campos');
+            secaoCampos.innerHTML = '';
+
+            const enderecoHTML = gerarCamposEndereco();
+
+            if (tipoPessoa === 'fisica') {
+                secaoCampos.innerHTML = `
+                    <input type="text" name="nome" placeholder="Nome completo" required />
+                    <input type="email" name="email" placeholder="Seu e-mail" required />
+                    <input type="tel" name="telefone" placeholder="Telefone" required />
+                    <input type="text" name="cpf" placeholder="CPF" required />
+                    <fieldset id="enderecos">
+                        <legend style="color: white;">Endereço(s)</legend>
+                        ${enderecoHTML}
+                    </fieldset>
+                    <button type="button" class="btn-add-endereco" onclick="adicionarEndereco()">Adicionar outro endereço</button>
+                `;
+            } else if (tipoPessoa === 'juridica') {
+                secaoCampos.innerHTML = `
+                    <input type="text" name="razao_social" placeholder="Razão Social" required />
+                    <input type="text" name="nome_social" placeholder="Nome Social" required />
+                    <input type="text" name="cnpj" placeholder="CNPJ" required />
+                    <input type="email" name="email" placeholder="Seu e-mail" required />
+                    <input type="tel" name="telefone" placeholder="Telefone" required />
+                    <fieldset id="enderecos">
+                        <legend style="color: white;">Endereço(s)</legend>
+                        ${enderecoHTML}
+                    </fieldset>
+                    <button type="button" class="btn-add-endereco" onclick="adicionarEndereco()">Adicionar outro endereço</button>
+                `;
+            }
+        }
+
+        function gerarCamposEndereco() {
+            return `
+                <div class="endereco">
+                    <input type="text" name="cep[]" placeholder="CEP" required onblur="buscarEndereco(this.value)" />
+                    <input type="text" name="pais[]" placeholder="País" required />
+                    <input type="text" name="estado[]" placeholder="Estado" required />
+                    <input type="text" name="cidade[]" placeholder="Cidade" required />
+                    <input type="text" name="numero[]" placeholder="Número" required />
+                    <input type="text" name="complemento[]" placeholder="Complemento (opcional)" />
+                </div>
+            `;
+        }
+
+        function adicionarEndereco() {
+            const enderecosContainer = document.getElementById('enderecos');
+            enderecosContainer.insertAdjacentHTML('beforeend', gerarCamposEndereco());
+        }
+
+        function buscarEndereco(cep) {
+            console.log("Buscar endereço para o CEP: ", cep);
+        }
+    </script>
 </head>
 <body>
 
@@ -15,38 +257,106 @@
         <h1>Wise</h1>
     </div>
 
-    <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="aboutus.html">Sobre Nós</a></li>
-        <li><a href="productsandservices.html">Produtos e Serviços</a></li>
-        <li><a href="contact.html">Contato</a></li>
-        <li><a href="account.html" id="account-btn">Conta</a></li>
-        <a href="#" class="icone">Idioma</a>
-        <select>
-            <option value="pt" selected>Português</option>
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="de">Deutsch</option>
-            <option value="zh">中文</option>
-            <option value="ar">العربية</option>
-        </select>
+<div class="language-selector">
+    <button class="language-btn">
+        <img src="https://flagcdn.com/w40/br.png" alt="Português" />
+        Português <i class="fa-solid fa-chevron-down"></i>
+    </button>
+    <ul class="language-dropdown">
+        <li><img src="https://flagcdn.com/w40/br.png" alt="Português" /> Português</li>
+        <li><img src="https://flagcdn.com/w40/gb.png" alt="English" /> English</li>
+        <li><img src="https://flagcdn.com/w40/es.png" alt="Español" /> Español</li>
+        <li><img src="https://flagcdn.com/w40/fr.png" alt="Français" /> Français</li>
+        <li><img src="https://flagcdn.com/w40/de.png" alt="Deutsch" /> Deutsch</li>
+        <li><img src="https://flagcdn.com/w40/cn.png" alt="中文" /> 中文</li>
+        <li><img src="https://flagcdn.com/w40/sa.png" alt="العربية" /> العربية</li>
     </ul>
+    
+</div>
+
 </header>
 
 <main style="margin-top: 40px; display: flex; justify-content: center;">
-    <form action="https://formsubmit.co/energiwise@gmail.com" method="POST" style="width: 400px;">
-        <h2 style="font-size: 40px; margin-bottom: 20px; font-weight: 300; font-family: 'Times New Roman', Times, serif; color: white;">
-            Cadastro
+    <form action="https://formsubmit.co/energiwise@gmail.com" method="POST">
+        <h2 style="font-size: 50px; margin-bottom: 30px; font-weight: 300; font-family: 'Times New Roman', Times, serif; color: white;">
+          <span>Cadastro</span>
         </h2>
-        <input type="text" name="nome" placeholder="Nome completo" required />
-        <input type="email" name="email" placeholder="Seu e-mail" required />
-        <input type="password" name="senha" placeholder="Crie uma senha" required />
+
+        <select id="tipo-conta" name="tipo_conta" onchange="exibirCamposConta()" required>
+            <option value="">Selecione o Tipo de Conta</option>
+            <option value="residencial">Residencial/Pessoal</option>
+            <option value="multi-residencial">Multi-Residencial</option>
+            <option value="empresarial">Empresarial</option>
+            <option value="multi-empresarial">Multi-Empresarial</option>
+            <option value="orgao-publico">Órgão Público</option>
+        </select>
+
+        <div id="secao-tipo-pessoa" style="display:none;">
+            <select id="tipo-pessoa" name="tipo_pessoa" onchange="exibirCamposPessoa()" required>
+                <option value="">Selecione o Tipo de Pessoa</option>
+                <option value="fisica">Pessoa Física</option>
+                <option value="juridica">Pessoa Jurídica</option>
+            </select>
+        </div>
+
+        <div id="secao-campos"></div>
+
+<div class="senha-container" style="position: relative; display: inline-block;">
+  <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required style="padding-right: 40px;" />
+  <button type="button" id="toggleSenha" aria-label="Mostrar senha" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #666;">
+    <i class="fa fa-eye"></i>
+  </button>
+  <script src="mostra-senha.js" defer></script>
+
+</div>
+
+<br>
+<label class="checkbox-label">
+  <input type="checkbox" required />
+  <span>
+    Li e concordo com os <button type="button" onclick="abrirModal()" class="link-button">termos de uso</button></a> e com o uso de dados conforme a LGPD.
+  </span>
+  <!-- Modal de Termos e Condições -->
+<div id="modal-termos" class="modal">
+  <div class="modal-content">
+    <button type="button" class="fechar" onclick="fecharModal()" aria-label="Fechar termos">
+  &times;
+</button>
+    <h3>Termos de Uso</h3>
+    <p>
+      Estes são os termos de uso do EnergyWise. Ao se cadastrar, você concorda com o tratamento de seus dados pessoais conforme a Lei Geral de Proteção de Dados (LGPD). Seus dados serão utilizados apenas para fins de autenticação e prestação de serviços. Não compartilhamos suas informações com terceiros sem consentimento.
+    </p>
+    <p>
+      É responsabilidade do usuário fornecer informações verídicas. O descumprimento destes termos pode acarretar em suspensão da conta ou outras medidas cabíveis.
+    </p>
+    <!-- Adicione mais conteúdo conforme necessário -->
+  </div>
+</div>
+<script>
+  function abrirModal() {
+    document.getElementById("modal-termos").style.display = "block";
+  }
+
+  function fecharModal() {
+    document.getElementById("modal-termos").style.display = "none";
+  }
+
+  // Fecha o modal ao clicar fora do conteúdo
+  window.onclick = function(event) {
+    const modal = document.getElementById("modal-termos");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
+</label>
+
+
         <input type="submit" value="Cadastrar" />
-        
-        <!-- Evita spam -->
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_next" value="/perfil.html" />
+        </label>
     </form>
 </main>
 

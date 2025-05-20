@@ -33,17 +33,34 @@
         </select>
     </ul>
 </header>
+<main style="margin-top: 40px; max-width: 900px; margin-left: auto; margin-right: auto; color: white; font-family: 'Times New Roman', Times, serif;">
+  <div style="display: flex; justify-content: flex-start; align-items: flex-start; gap: 60px; flex-wrap: wrap;">
 
-<main style="margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto; color: white; font-family: 'Times New Roman', Times, serif;">
-    <h2 style="font-size: 50px; font-weight: 300; margin-bottom: 30px;">Bem-vindo, <span style="color: rgb(35, 175, 145);" id="user-name">[Nome]</span></h2>
-    <ul style="list-style: none; padding: 0; font-size: 20px;">
-        <li style="margin-bottom: 20px;"><a href="/editar-perfil.html" style="color: white; text-decoration: none;">Editar perfil</a></li>
-        <li style="margin-bottom: 20px;"><a href="/planos.html" style="color: white; text-decoration: none;">Mudar tipo de conta</a></li>
-        <li>
-            <button onclick="confirmarSaida()" class="link-button">Sair da conta</button>
-        </li>
+    <!-- Mensagem de boas-vindas -->
+    <div>
+      <h2 style="font-size: 50px; font-weight: 300; margin-bottom: 0; line-height: 1.2;">
+        Bem-vindo,<br />
+        <span style="color: rgb(35, 175, 145);" id="user-name">[Nome]</span>
+      </h2>
+    </div>
+
+    <!-- Menu vertical -->
+    <ul style="list-style: none; padding: 10px 0; margin: 0; font-size: 20px; display: flex; flex-direction: column; gap: 20px;">
+      <li>
+        <a href="/editar-perfil.html" style="color: white; text-decoration: none;">Editar perfil</a>
+      </li>
+      <li>
+        <a href="/planos.html" style="color: white; text-decoration: none;">Mudar tipo de conta</a>
+      </li>
+      <li>
+        <button onclick="confirmarSaida()" class="link-button" style="color: white; background: none; border: none; cursor: pointer; font-size: 20px; text-decoration: underline;">Sair da conta</button>
+      </li>
     </ul>
+
+  </div>
 </main>
+
+
 
 <script>
   // Exemplo básico para pegar nome do usuário salvo no sessionStorage (ajuste conforme sua lógica)
