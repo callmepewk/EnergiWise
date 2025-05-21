@@ -287,3 +287,33 @@ textarea {
 .language-selector:hover .language-dropdown {
     display: block;
 }
+.chamado{
+    display: flex;          /* Ativa flexbox */
+    flex-direction: column; /* Empilha os itens verticalmente */
+    align-items: center;    /* Centraliza no eixo transversal (horizontal) */
+    justify-content: center;/* Centraliza no eixo principal (vertical - opcional) */
+    min-height: 20vh;     /* Altura mínima da viewport (ajuste conforme necessidade) */
+}
+
+#chamado-btn{
+    background-color: rgb(35, 175, 145);
+    font-size: large;
+    font-weight: 200;
+    border: 2px solid rgb(35, 175, 145);
+    padding: 25px;
+    border-radius: 25px;
+}
+
+#chamado-btn:hover{
+    background-color: white;
+    color: rgb(35, 175, 145);
+    transition: 0.3s all;
+}
+
+h3{
+    display: flex;          
+    flex-direction: column; 
+    align-items: center;    
+    justify-content: center;
+    min-height: 0vh;
+}
