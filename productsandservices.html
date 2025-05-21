@@ -13,6 +13,63 @@
             height: auto;
             vertical-align: middle;
         }
+     .dispositivos-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .dispositivos {
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .dispositivos:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .dispositivos h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .dispositivos p {
+      font-size: 0.95rem;
+      color: #555;
+      margin: 10px 0;
+    }
+
+    .preco {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #2c7;
+      margin: 10px 0;
+    }
+
+    .btn-adquirir {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-adquirir:hover {
+      background-color: #0056b3;
+    }
     </style>
 </head>
 <body>
@@ -20,7 +77,7 @@
     <header>   
         <div id="title">
             <h1>Energy</h1>
-            <h1>Wise</h1>
+           <span><h1>Wise</h1></span>
         </div>
         
         <ul>
@@ -55,40 +112,35 @@
 A EnergyWise oferece soluções completas para o gerenciamento inteligente do consumo de energia, unindo tecnologia própria e integração com dispositivos inteligentes do mercado. 
 <br>
 <br>
-<h3>Nosso portfólio inclui:</h3>
+<h2><span>[Nome do Dispositivo que Estamos Criando]</span></h2>
 <br>
 Hardware exclusivo EnergyWise (nome a definir), desenvolvido para monitoramento local do consumo elétrico, com funcionamento mesmo sem internet e total compatibilidade com nosso aplicativo.
 <br>
 <br>
-Integração com dispositivos inteligentes, como lâmpadas, tomadas e sensores, permitindo automações eficientes e controle remoto direto pelo app.
 </p>
-<p>
-Além da tecnologia, oferecemos serviços especializados, como:
-<br>
-<br>
+<h2>Dispositivos <span> Inteligentes:</span></h2>
+<div class="dispositivos-container">
+        <div class="dispositivos">
+            <h3>[Nome do Dispositivo]</h3>
+             <img src="" alt="- do Produto">
+            <p>[Descrição Básica]</p>
+            <div class="preco">R$ 0,00</div>
+            <a href="https://www.exemplo.com" target="_blank" rel="noopener noreferrer" class="btn-adquirir">Adquirir</a>
 
-Instalação e manutenção técnica dos dispositivos, garantindo funcionamento seguro e otimizado.
-<br>
-<br>
-Acompanhamento com tutoriais práticos e manual de boas práticas, abordando:
-<br>
-<br>
-Uso eficiente do aplicativo;
-<br>
-<br>
-Integração e conectividade com dispositivos inteligentes;
-<br>
-<br>
-Estratégias de economia e gestão do consumo de energia elétrica.
-<br>
-<br>
-Nosso objetivo é simplificar a experiência do usuário e tornar o uso da energia mais inteligente, sustentável e acessível.
-</p>
+        </div>
+        <div class="dispositivos">
+            <h3>[Nome do Dispositivo]</h3>
+            <img src="" alt="- do Produto">
+            <p>[Descrição Básica]</p>
+            <div class="preco">R$ 0,00</div>
+            <a href="https://www.exemplo.com" target="_blank" rel="noopener noreferrer" class="btn-adquirir">Adquirir</a>
+        </div>
+    </div class="dispositivos-container">
+        <h2><span>Serviços:</span></h2>
+        <!--Colocar os serviços oferecidos aqui-->
         </aside>
 
-        <article>
-            <img src="logosfnd.png" alt="Products and Services">
-        </article>
+
     </main>
 
         <footer>
