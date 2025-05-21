@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Planos - EnergyWise</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
     <style>
         .language-btn img,
@@ -69,61 +70,266 @@
             letter-spacing: 1px;
             transition: background-color 0.3s ease;
             cursor: pointer;
+            margin: 10px 15px 25px;
         }
         .btn-assinar:hover {
             background-color: rgb(27, 135, 112);
         }
-    </style>
-</head>
-<body>
-
-<header>   
-    <div id="title">
-        <h1>Energy</h1>
-        <h1>Wise</h1>
-    </div>
-
-    <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="aboutus.html">Sobre Nós</a></li>
-        <li><a href="productsandservices.html">Produtos e Serviços</a></li>
-        <li><a href="contact.html">Contato</a></li>
-        <li><a href="account.html" id="account-btn">Conta</a></li>
-<div class="language-selector">
-    <button class="language-btn">
-        <img src="https://flagcdn.com/w40/br.png" alt="Português" />
-        Português <i class="fa-solid fa-chevron-down"></i>
-    </button>
-    <ul class="language-dropdown">
-        <li><img src="https://flagcdn.com/w40/br.png" alt="Português" /> Português</li>
-        <li><img src="https://flagcdn.com/w40/gb.png" alt="English" /> English</li>
-        <li><img src="https://flagcdn.com/w40/es.png" alt="Español" /> Español</li>
-        <li><img src="https://flagcdn.com/w40/fr.png" alt="Français" /> Français</li>
-        <li><img src="https://flagcdn.com/w40/de.png" alt="Deutsch" /> Deutsch</li>
-        <li><img src="https://flagcdn.com/w40/cn.png" alt="中文" /> 中文</li>
-        <li><img src="https://flagcdn.com/w40/sa.png" alt="العربية" /> العربية</li>
-    </ul>
-    
-</div>
-    </ul>
-</header>
-
-<main>
-    <div>
-    <h2 style="font-size: 50px; font-weight: 300; margin-bottom: 40px; text-align: center;">Escolha seu </h2>
-    <span style="color: rgb(35, 175, 145);font-size: 50px" id="user-name">Plano</span>
-    </div>
-    <div class="planos-container">
-        <div class="plano">
-            <h3>Básico</h3>
-            <p>Acesso limitado a funcionalidades essenciais.</p>
-            <div class="preco">R$ 0,00/mês</div>
-            <button class="btn-assinar" onclick="alert('Plano Básico selecionado!')">Assinar</button>
-        </div>
-        <div class="plano">
-            <h3>Premium</h3>
-            <p>Inclui recursos avançados e suporte prioritário.</p>
-            <div class="preco">R$ 59,90/mês</div>
-            <button class="btn-assinar" onclick="alert('Plano Intermediário selecionado!')">Assinar</button>
-        </div>
+        .detalhes{
+            text-decoration: none;
+        }
+        .detalhes:hover{
+            text-decoration: underline;
+            color: rgb(34, 211, 173); 
+            font-size: 23px;
+        }
         
+        header{
+            font-family: 'Times New Roman', Times, serif;
+        }
+        #title {
+            margin-top: 44px;
+            margin-left: 10.5px;
+        }
+        #title h1{
+            margin: -33px;
+        }
+        nav{
+            margin-top: 55px;
+        }
+        .language-btn{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .check { color: green; font-weight: bold; }
+    .cross { color: red; font-weight: bold; }
+    .feature-col { background-color: #f8f9fa; font-weight: 500; }
+    .basic-col { background-color: #ffffff; }
+    .premium-col { background-color: #e7f5ff; }
+    .table thead th {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .table td, .table th {
+      vertical-align: middle;
+      text-align: center;
+    }
+    .table .feature-text {
+      text-align: left;
+    }
+    .modal-title{
+        padding: 10px;
+        margin-top: 0px;
+        margin-bottom: 4px;
+        margin-left: auto;
+        font-size: 35px;
+    }
+
+    </style>
+    </head>
+    <body class="py-4">
+
+    <header>   
+        <div id="title" class="mb-0">
+            <h1>Energy</h1>
+            <h1>Wise</h1>
+    
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="aboutus.html">Sobre Nós</a></li>
+                <li><a href="productsandservices.html">Produtos e Serviços</a></li>
+                <li><a href="contact.html">Contato</a></li>
+                <li><a href="account.html" id="account-btn">Conta</a></li>
+                <div class="language-selector">
+                    <button class="language-btn">
+                        <img src="https://flagcdn.com/w40/br.png" alt="Português" />
+                        Português <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <ul class="language-dropdown">
+                        <li><img src="https://flagcdn.com/w40/br.png" alt="Português" /> Português</li>
+                        <li><img src="https://flagcdn.com/w40/gb.png" alt="English" /> English</li>
+                        <li><img src="https://flagcdn.com/w40/es.png" alt="Español" /> Español</li>
+                        <li><img src="https://flagcdn.com/w40/fr.png" alt="Français" /> Français</li>
+                        <li><img src="https://flagcdn.com/w40/de.png" alt="Deutsch" /> Deutsch</li>
+                        <li><img src="https://flagcdn.com/w40/cn.png" alt="中文" /> 中文</li>
+                        <li><img src="https://flagcdn.com/w40/sa.png" alt="العربية" /> العربية</li>
+                    </ul>
+            
+                </div>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div>
+        <h2 style="font-size: 50px; font-weight: 300; margin-bottom: 40px; text-align: center;">Escolha seu </h2>
+        <span style="color: rgb(35, 175, 145);font-size: 50px" id="user-name">Plano</span>
+        </div>
+        <div class="planos-container">
+            <div class="plano">
+                <h3>Básico</h3>
+                <p>Acesso limitado a funcionalidades essenciais.</p>
+                <div class="preco">R$ 0,00/mês</div>
+                <button class="btn-assinar" onclick="alert('Plano Básico selecionado!')">Assinar</button>
+
+                <!-- Button trigger modal -->
+                <a class="detalhes" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" >
+                Ver Detalhes:
+                </a>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title text-center mb-4" id="exampleModalLabel1">📋 Comparativo de Planos</h2 >
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="container">
+
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle">
+        <thead>
+          <tr>
+            <th style="width: 45%;">Funcionalidade</th>
+            <th style="width: 27%;">Plano Básico (Gratuito)</th>
+            <th style="width: 28%;">Plano Premium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature-col feature-text">📊 Dashboard com consumo em tempo real</td>
+            <td class="basic-col check">✅</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+          <tr>
+            <td class="feature-col feature-text">🕒 Histórico de consumo (últimos 7 dias)</td>
+            <td class="basic-col check">✅</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+          <tr>
+            <td class="feature-col feature-text">💡 Controle manual de dispositivos smart</td>
+            <td class="basic-col check">✅</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+          <tr>
+            <td class="feature-col feature-text">👤 Cadastro de um único local e até 5 dispositivos</td>
+            <td class="basic-col check">✅</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+          <tr>
+            <td class="feature-col feature-text">📱 Acesso pelo app web/mobile</td>
+            <td class="basic-col check">✅</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+          <tr>
+            <td class="feature-col feature-text">🔔 Alertas básicos de sobrecarga via e-mail</td>
+            <td class="basic-col check">✅</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+          <tr>
+            <td class="feature-col feature-text">📈 Relatórios mensais e exportação em PDF</td>
+            <td class="basic-col cross">❌</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+          <tr>
+            <td class="feature-col feature-text">🔁 Perfis de economia automatizados</td>
+            <td class="basic-col cross">❌</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+          <tr>
+            <td class="feature-col feature-text">🤖 Regras de automação (condições + ações)</td>
+            <td class="basic-col cross">❌</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+          <tr>
+            <td class="feature-col feature-text">📍 Geolocalização para desligamento automático</td>
+            <td class="basic-col cross">❌</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+          <tr>
+            <td class="feature-col feature-text">🗣️ Integração com assistentes virtuais (Google/Alexa)</td>
+            <td class="basic-col cross">❌</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+          <tr>
+            <td class="feature-col feature-text">👥 Múltiplos usuários (admin + convidados)</td>
+            <td class="basic-col cross">❌</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+          <tr>
+            <td class="feature-col feature-text">📊 Comparativos mensais com IA</td>
+            <td class="basic-col cross">❌</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+          <tr>
+            <td class="feature-col feature-text">📦 Backup em nuvem e recuperação de configurações</td>
+            <td class="basic-col cross">❌</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+          <tr>
+            <td class="feature-col feature-text">🧰 Suporte técnico prioritário</td>
+            <td class="basic-col cross">❌</td>
+            <td class="premium-col check">✅</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+            <div class="plano">
+                <h3>Premium</h3>
+                <p>Inclui recursos avançados e suporte prioritário.</p>
+                <div class="preco">R$ 59,90/mês</div>
+                <button class="btn-assinar" onclick="alert('Plano Intermediário selecionado!')">Assinar</button>
+
+
+                <!-- Button trigger modal -->
+                <a class="detalhes" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                Ver Detalhes:
+                </a>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modaasdfasdl title</h1> 
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        .asdfasdf..
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>   
+</body>
