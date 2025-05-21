@@ -13,6 +13,37 @@
             height: auto;
             vertical-align: middle;
         }
+        .chamado{
+    display: flex;          /* Ativa flexbox */
+    flex-direction: column; /* Empilha os itens verticalmente */
+    align-items: center;    /* Centraliza no eixo transversal (horizontal) */
+    justify-content: center;/* Centraliza no eixo principal (vertical - opcional) */
+    min-height: 20vh;     /* Altura mínima da viewport (ajuste conforme necessidade) */
+}
+
+#chamado-btn{
+    background-color: rgb(35, 175, 145);
+    font-size: large;
+    font-weight: 200;
+    border: 2px solid rgb(35, 175, 145);
+    padding: 25px;
+    border-radius: 25px;
+}
+
+#chamado-btn:hover{
+    background-color: white;
+    color: rgb(35, 175, 145);
+    transition: 0.3s all;
+}
+
+h3{
+    display: flex;          
+    flex-direction: column; 
+    align-items: center;    
+    justify-content: center;
+    min-height: 0vh;
+}
+
     </style>
 </head>
 <body>
@@ -20,7 +51,7 @@
     <header>   
         <div id="title">
             <h1>Energy</h1>
-            <h1>Wise</h1>
+            <h1><span>Wise</span></h1>
         </div>
         
   
@@ -49,7 +80,6 @@
         </ul>
         
     </header>
-
     <main>
         <aside>
             <h2>Sua parceira em <span>soluções</span></h2>
@@ -72,10 +102,19 @@
         </aside>
 
         <article>
-            <img src="logosfnd.png" alt="Logo EnergyWise">
+            <img src="logosfnd.png" alt="Logo EnergyWise"style="width: 500px; height: 500px; float: right; margin-left: 100pxpx; margin-bottom: 10px;">
         </article>
 
     </main>
+
+<div class="chamado">
+
+    <h3>Ficou interessado? Venha conhecer os nossos planos!</h3>
+    <button id="chamado-btn">Clique aqui</button>
+    
+</div>
+<br>
+<br>
 
     <footer>
   <h3>Nossas Redes Sociais:</h3>
