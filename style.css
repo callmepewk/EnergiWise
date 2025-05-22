@@ -1,4 +1,4 @@
-body{
+html, body{
     background-color: #222a30;
     color: white;
     font-family:'Times New Roman', Times, serif;
@@ -6,6 +6,7 @@ body{
     font-style: normal;
     font-size: 20px;
     max-width: 1200px;
+    height: 100%;
     margin: 0 auto;
     padding: 15px;
 }
@@ -13,16 +14,42 @@ body{
 header{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 150px;
+}
+header ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+}
+
+header ul li {
+    margin: 0 15px;
+    position: relative; /* Para o dropdown funcionar */
+}
+header ul li a {
+    white-space: nowrap; /* impede quebra de linha dentro do texto do link */
 }
 
 #title{
     line-height: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    margin:0px;
+    gap: 10px;
+}
+
+#title h1 {
+    align-items: justify;
+    font-size: 80px;
+    font-weight: 100;
+    margin-right: 0px  ;
 }
 
 li{
@@ -52,17 +79,13 @@ a:hover{
     transition: 0.3s all;
 }
 
-h1{
-    font-size: 80px;
-    font-weight: 100; 
-}
-
 main{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 10px;
     align-items: center;
+    gap: 40px;
 }
 .logo-float {
     float: right;
@@ -186,6 +209,9 @@ textarea {
     ul{
         text-align: center;
     }
+    #partner-section h2 {
+        font-size: 30px;
+    }
 }
 #social-media {
     text-align: center;
@@ -239,7 +265,7 @@ textarea {
 .language-selector {
     position: relative;
     display: inline-block;
-    margin-left: 20px;
+    margin-right: 50px;
 }
 
 .language-btn {
@@ -290,31 +316,3 @@ textarea {
 .language-selector:hover .language-dropdown {
     display: block;
 }
-
-.passos-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    gap: 20px; 
-    list-style: none;
-    padding: 0;
-}
-
-.passo {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    max-width: 200px; 
-}
-
-.mod-receita{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    gap: 20px; 
-    list-style: none;
-    padding: 0;
-}
-
-
