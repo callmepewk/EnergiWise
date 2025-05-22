@@ -29,10 +29,10 @@ header ul {
 
 header ul li {
     margin: 0 15px;
-    position: relative; /* Para o dropdown funcionar */
+    position: relative; 
 }
 header ul li a {
-    white-space: nowrap; /* impede quebra de linha dentro do texto do link */
+    white-space: nowrap; 
 }
 
 #title{
@@ -95,7 +95,7 @@ main{
     height: auto;
 }
 .logo-article {
-  margin-left: 40px;   /* distância entre o texto e a imagem */
+  margin-left: 40px;   
 }
 
 .logo-article img {
@@ -209,9 +209,7 @@ textarea {
     ul{
         text-align: center;
     }
-    #partner-section h2 {
-        font-size: 30px;
-    }
+
 }
 #social-media {
     text-align: center;
@@ -227,7 +225,7 @@ textarea {
 }
 
 #social-media a:hover {
-    color: rgb(35, 175, 145); /* cor de destaque do seu site */
+    color: rgb(35, 175, 145); /* cor de destaque site */
 }
 
 #start-btn {
