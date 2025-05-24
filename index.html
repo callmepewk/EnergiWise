@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="style.css">
     <title>EnergyWise</title>
     <style>
-        .language-btn img {
+.language-btn img {
     width: 24px;
     height: auto;
     border-radius: 16px;
 }
-        .language-dropdown img {
-            width: 24px;
-            height: auto;
-            vertical-align: middle;
-        }
-        .chamado{
+.language-dropdown img {
+     width: 24px;
+    height: auto;
+    vertical-align: middle; 
+ }
+.chamado{
     display: flex;          /* Ativa flexbox */
     flex-direction: column; /* Empilha os itens verticalmente */
     align-items: center;    /* Centraliza no eixo transversal (horizontal) */
@@ -49,29 +49,97 @@ h3{
 }
 .passos-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    gap: 20px; 
-    list-style: none;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px auto;
     padding: 0;
+    list-style: none;
+    max-width: 1000px;
+    flex-wrap: wrap;
 }
 
 .passo {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    max-width: 200px; 
+    background-color: #f9f9f9;
+    border: 2px solid #23af91; /* cor similar à usada no "Plano" */
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+.passo:hover {
+    transform: translateY(-5px);
+}
+.passo h4 {
+    font-size: 24px;
+    color: #23af91;
+    margin-bottom: 10px;
+    font-weight: 500;
 }
 
-.mod-receita{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    gap: 20px; 
-    list-style: none;
-    padding: 0;
+.passo p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.4;
 }
+.modelo-receita{
+    background-color: #ffffff;
+    padding: 50px 30px 20px 30px; 
+    margin: 40px auto;
+    max-width: 1000px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1; 
+    overflow: hidden; 
+}
+
+.titulo-receita {
+    font-size: 48px;
+    font-weight: 300;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.descricao-receita {
+    font-size: 18px;
+    color: #444;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+.topicos-receita {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.topico {
+    background-color: #f5f5f5;
+    border: 2px solid #23af91;
+    border-radius: 16px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    text-align: left;
+}
+
+.topico h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #23af91;
+}
+
+.topico p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.4;
+}
+
     </style>
 </head>
 <body>
@@ -179,41 +247,46 @@ h3{
 <br>
 
 <div class="modelo-receita">
-    <h2>Modelo de Receita:</h2>
-    <br>
-    <p>Nosso modelo de receita é baseado em assinaturas mensais, com planos escaláveis para diferentes perfis de clientes. Além da publicidade digital integrada no site, ofertando produtos e serviços.</p>
+    <h2 class="titulo-receita">Modelo de Receita</h2>
+    <p class="descricao-receita">
+        Nosso modelo de receita é baseado em assinaturas mensais, com planos escaláveis para diferentes perfis de clientes.
+        Além disso, contamos com publicidade digital integrada no site, ofertando produtos e serviços relevantes.
+    </p>
 
-    <li style="margin-left: 800px; margin-top: -250px;">
-        <h4>Clientes</h4>
-        <h4>Planos de Assinatura</h4>
-        <h4>App e Dispositivos</h4>
-    </li>
-</div>
+    <div class="topicos-receita">
+        <div class="topico">
+            <h4>🧑‍💼 Clientes</h4>
+            <p>Clientes contratam planos conforme suas necessidades.</p>
+        </div>
+        <div class="topico">
+            <h4>📦 Planos de Assinatura</h4>
+            <p>Planos mensais com diferentes funcionalidades e preços (em definição).</p>
+        </div>
+        <div class="topico">
+            <h4>📱 App e Dispositivos</h4>
+            <p>
+                O app exige um plano ativo para liberar recursos. Os dispositivos incluem:
+                <br>- Nosso dispositivo exclusivo (produção própria);
+                <br>- Dispositivos afiliados (de terceiros).
+            </p>
+        </div class="topico">
+        </div class="topicos-receita">
+    </div class="modelo-receita">
 
 <br>
 
 <div class="porque">
-    <h2>Por que agora?</h2>
-    <p >O mercado global de smart energy está crescendo rapidamente, com mais de 3,6 bilhões de dispositivos IoT em uso e um valor estimado de USD 170 bilhões em 2024. No Brasil, a crescente preocupação ambiental e a demanda por eficiência energética, tanto residencial quanto empresarial, criam uma oportunidade única para soluções integradas e inteligentes como a EnergyWise. Além disso, avanços tecnológicos em IA, automação e conectividade tornam viável oferecer uma plataforma escalável e diferenciada, justamente no momento em que consumidores e empresas buscam reduzir custos e impactos ambientais.</p>
-
+  <h2>Por que agora?</h2>
+  <p>O mercado global de smart energy está crescendo rapidamente, com mais de 3,6 bilhões de dispositivos IoT em uso e um valor estimado de USD 170 bilhões em 2024. No Brasil, a crescente preocupação ambiental e a demanda por eficiência energética, tanto residencial quanto empresarial, criam uma oportunidade única para soluções integradas e inteligentes como a EnergyWise. Além disso, avanços tecnológicos em IA, automação e conectividade tornam viável oferecer uma plataforma escalável e diferenciada, justamente no momento em que consumidores e empresas buscam reduzir custos e impactos ambientais.</p>
 </div>
 
 <div class="chamado">
-
-    <h3>Ficou interessado? Venha conhecer os nossos planos!</h3>
-    <button id="chamado-btn">Clique aqui</button>
-    
+  <h3>Ficou interessado? Venha conhecer os nossos planos!</h3>
+  <button id="chamado-btn">Clique aqui</button>
 </div>
 
-<br>
-
-    <footer>
-<br>
-
-    <footer>
-  <h3>Nossas Redes Sociais:</h3>
-    <p>
 <footer>
+  <h3>Nossas Redes Sociais:</h3>
   <div id="social-media">
     <a href="https://www.instagram.com/energywisefy?igsh=MTNiMHdjNHEyd2UyNA==" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://www.facebook.com/share/1H1KnJa9KF/" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -223,11 +296,8 @@ h3{
     <a href="https://www.threads.net/@energywisefy" target="_blank"><i class="fab fa-threads"></i></a>
     <a href="https://www.linkedin.com/in/energywise-energywise-20b655366/" target="_blank"><i class="fab fa-linkedin"></i></a>
   </div>
-</footer>
-
-  </p>
   <p>&copy; 2025 EnergyWise</p>
-    </footer>
+</footer>
 
 </body>
 </html>
