@@ -3,16 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <title>EnergyWise</title>
     <style>
-      .language-btn img,
-      .language-dropdown img {
-          width: 24px;   /* largura desejada */
-          height: auto;  /* mantém a proporção */
-          vertical-align: middle; /* alinha melhor com o texto */
-      }
+        .language-btn img {
+    width: 24px;
+    height: auto;
+    border-radius: 16px;
+}
+        .language-dropdown img {
+            width: 24px;
+            height: auto;
+            vertical-align: middle;
+        }
+        .chamado{
+    display: flex;          /* Ativa flexbox */
+    flex-direction: column; /* Empilha os itens verticalmente */
+    align-items: center;    /* Centraliza no eixo transversal (horizontal) */
+    justify-content: center;/* Centraliza no eixo principal (vertical - opcional) */
+    min-height: 20vh;     /* Altura mínima da viewport (ajuste conforme necessidade) */
+}
+
+#chamado-btn{
+    background-color: rgb(35, 175, 145);
+    font-size: large;
+    font-weight: 200;
+    border: 2px solid rgb(35, 175, 145);
+    padding: 25px;
+    border-radius: 25px;
+}
+
+#chamado-btn:hover{
+    background-color: white;
+    color: rgb(35, 175, 145);
+    transition: 0.3s all;
+}
+
+h3{
+    display: flex;          
+    flex-direction: column; 
+    align-items: center;    
+    justify-content: center;
+    min-height: 0vh;
+}
+.passos-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    gap: 20px; 
+    list-style: none;
+    padding: 0;
+}
+
+.passo {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    max-width: 200px; 
+}
+
+.mod-receita{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    gap: 20px; 
+    list-style: none;
+    padding: 0;
+}
     </style>
 </head>
 <body>
@@ -25,31 +84,57 @@
 
         
   
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="aboutus.html">Sobre Nós</a></li>
-            <li><a href="productsandservices.html">Produtos e Serviços</a></li>
-            <li><a href="contact.html">Contato</a></li>
-            <li><a href="account.html" id="account-btn">Conta</a></li>
-        </ul>
-
-        <div class="language-selector">
-            <button class="language-btn">
-                <img src="https://flagcdn.com/w40/br.png" alt="Português" />
-                Português <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <ul class="language-dropdown">
-                <li><img src="https://flagcdn.com/w40/br.png" alt="Português" /> Português</li>
-                <li><img src="https://flagcdn.com/w40/gb.png" alt="English" /> English</li>
-                <li><img src="https://flagcdn.com/w40/es.png" alt="Español" /> Español</li>
-                <li><img src="https://flagcdn.com/w40/fr.png" alt="Français" /> Français</li>
-                <li><img src="https://flagcdn.com/w40/de.png" alt="Deutsch" /> Deutsch</li>
-                <li><img src="https://flagcdn.com/w40/cn.png" alt="中文" /> 中文</li>
-                <li><img src="https://flagcdn.com/w40/sa.png" alt="العربية" /> العربية</li>
-            </ul>
-         </div>
-        
+<ul>
+    <li><a href="index.html">Início</a></li>
+    <li><a href="aboutus.html">Sobre Nós</a></li>
+    <li><a href="productsandservices.html">Produtos e Serviços</a></li>
+    <li><a href="contact.html">Contato</a></li>
+    <li><a href="account.html" id="account-btn">Conta</a></li>
+<div class="language-selector">
+    <button class="language-btn">
+        <img src="https://flagcdn.com/w40/br.png" alt="Português" />
+        Português <i class="fa-solid fa-chevron-down"></i>
+    </button>
+    <ul class="language-dropdown">
+        <li><img src="https://flagcdn.com/w40/br.png" alt="Português" /> Português</li>
+        <li><img src="https://flagcdn.com/w40/gb.png" alt="English" /> English</li>
+        <li><img src="https://flagcdn.com/w40/es.png" alt="Español" /> Español</li>
+        <li><img src="https://flagcdn.com/w40/fr.png" alt="Français" /> Français</li>
+        <li><img src="https://flagcdn.com/w40/de.png" alt="Deutsch" /> Deutsch</li>
+        <li><img src="https://flagcdn.com/w40/cn.png" alt="中文" /> 中文</li>
+        <li><img src="https://flagcdn.com/w40/sa.png" alt="العربية" /> العربية</li>
+    </ul>
+</div>
+</ul>
     </header>
+    <main>
+        <aside>
+           <h2>Sua parceira em <span>soluções</span></h2>
+        <h2>de energia<span> sustentáveis</span></h2>
+        <p>
+            A EnergyWise é uma startup de tecnologia focada em soluções inteligentes para monitoramento e automação do consumo de energia.
+            <br><br>
+            Oferecemos uma plataforma com app intuitivo e hardware opcional, que permite acompanhar o consumo em tempo real, automatizar rotinas e reduzir gastos de forma prática.
+            <br><br>
+            Compatível com dispositivos inteligentes, nossa solução também funciona offline com hardware próprio, oferecendo controle remoto, automações por geolocalização e alertas inteligentes via IA.
+            <br><br>
+            Atendemos residências, empresas e instituições com um modelo acessível, incluindo app gratuito com versão premium, consultoria e venda de dispositivos.
+            <br><br>
+            Nosso propósito é unir economia, eficiência e sustentabilidade em uma experiência energética inteligente.
+        </p>
+        </aside>
+
+
+    </main>
+
+<div class="chamado">
+
+    <h3>Ficou interessado? Venha conhecer os nossos planos!</h3>
+    <button id="chamado-btn">Clique aqui</button>
+    
+</div>
+<br>
+<br>
 
 <div class="Missao-empresa">
     <h2>Missão da empresa:</h2>
