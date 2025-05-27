@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog - EnergyWise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+    
+      .language-btn img {
+          width: 24px;
+          height: auto;
+          border-radius: 16px;
+      }
+      .language-dropdown img {
+          width: 24px;
+          height: auto;
+          vertical-align: middle;
+      }
+   
+      main {
+          margin-top: 40px; 
+      }
+
+
+      html {
+          scroll-padding-top: 80px;
+      }
+    </style>
+</head>
+<body>
+
+<header>
+  <div id="title">
+      <img src="logosfnd.png" alt="Logo da Empresa" />
+      <h1>Energy</h1><h1><span>Wise</span></h1>
+  </div>
+
+<ul>
+    <li><a href="index.html">Início</a></li>
+    <li><a href="aboutus.html">Sobre Nós</a></li>
+    <li><a href="productsandservices.html">Produtos e Serviços</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contato</a></li>
+    <li><a href="account.html" id="account-btn">Conta</a></li>
+<div class="language-selector">
+    <button class="language-btn">
+        <img src="https://flagcdn.com/w40/br.png" alt="Português" />
+        Português <i class="fa-solid fa-chevron-down"></i>
+    </button>
+    <ul class="language-dropdown">
+        <li><img src="https://flagcdn.com/w40/br.png" alt="Português" /> Português</li>
+        <li><img src="https://flagcdn.com/w40/gb.png" alt="English" /> English</li>
+        <li><img src="https://flagcdn.com/w40/es.png" alt="Español" /> Español</li>
+        <li><img src="https://flagcdn.com/w40/fr.png" alt="Français" /> Français</li>
+        <li><img src="https://flagcdn.com/w40/de.png" alt="Deutsch" /> Deutsch</li>
+        <li><img src="https://flagcdn.com/w40/cn.png" alt="中文" /> 中文</li>
+        <li><img src="https://flagcdn.com/w40/sa.png" alt="العربية" /> العربية</li>
+    </ul>
+</div>
+</ul>
+    </header>
+
+<main>
+  <section id="blog-posts" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1000px; margin: 0 auto;">
+
+    <!-- Exemplo de post - Está indicando erro porque apenas preenchi o espaço de img src que deve ser alterado com imagens reais depois -->
+    <article class="blog-post" style="background-color: #33383d; border-radius: 15px; padding: 20px; max-width: 450px; color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+      <img src="post1-image.jpg" alt="Imagem do post 1" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 15px;">
+      <h3 style="font-family: 'Times New Roman', serif; font-weight: 300; font-size: 1.8rem; margin-bottom: 8px;">Como economizar energia com inteligência artificial</h3>
+      <p style="font-size: 0.9rem; color: rgb(35, 175, 145); margin-bottom: 12px;">Publicado em 15 de Maio de 2025</p>
+      <p style="font-family: 'Times New Roman', serif; line-height: 1.4;">
+        A IA pode ajudar a monitorar o consumo e sugerir ações para reduzir desperdícios no seu dia a dia. Conheça as melhores práticas...
+      </p>
+      <button class="link-button" onclick="window.location.href='post1.html'">Leia mais</button>
+    </article>
+
+    <article class="blog-post" style="background-color: #33383d; border-radius: 15px; padding: 20px; max-width: 450px; color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+      <img src="post2-image.jpg" alt="Imagem do post 2" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 15px;">
+      <h3 style="font-family: 'Times New Roman', serif; font-weight: 300; font-size: 1.8rem; margin-bottom: 8px;">Dicas para reduzir sua conta de luz residencial</h3>
+      <p style="font-size: 0.9rem; color: rgb(35, 175, 145); margin-bottom: 12px;">Publicado em 1 de Maio de 2025</p>
+      <p style="font-family: 'Times New Roman', serif; line-height: 1.4;">
+        Conheça pequenos hábitos que podem fazer uma grande diferença no consumo da sua casa e na sustentabilidade do planeta.
+      </p>
+      <button class="link-button" onclick="window.location.href='post2.html'">Leia mais</button>
+    </article>
+
+    <!-- Pode adicionar mais posts aqui -->
+  </section>
+</main>
+
+<footer>
+  <h3>Nossas Redes Sociais:</h3>
+  <div id="social-media">
+    <a href="https://www.instagram.com/energywisefy?igsh=MTNiMHdjNHEyd2UyNA==" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/share/1H1KnJa9KF/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.tiktok.com/@energywisefy?_t=ZM-8wTWOasdhah&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://youtube.com/@energywisefy?si=lmuwAanNYi96W4wD" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://x.com/EnergyWiseFy?t=oHvXNYBf-A4j5QCztALa1w&s=09" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://www.threads.net/@energywisefy" target="_blank"><i class="fab fa-threads"></i></a>
+    <a href="https://www.linkedin.com/in/energywise-energywise-20b655366/" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <p>&copy; 2025 EnergyWise</p>
+</footer>
+
+</body>
+</html>
