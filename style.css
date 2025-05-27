@@ -12,17 +12,19 @@ html, body{
 }
 
 header{
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 0;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 150px;
+    justify-content: center; 
+    align-items: center; 
+    height: 100px; 
 }
 header ul {
     display: flex;
     align-items: center;
     list-style: none;
     margin: 0;
+    margin-left: 40px;
     padding: 0;
     gap: 10px;
 }
@@ -35,21 +37,31 @@ header ul li a {
     white-space: nowrap; 
 }
 
-#title{
-    line-height: 10px;
+#title {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
     align-items: center;
-    margin:0px;
-    gap: 10px;
+    gap: 10px; 
+    margin: 0;
+    margin-right: 60px;
+}
+
+#title img {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    padding: 0;
 }
 
 #title h1 {
-    align-items: justify;
-    font-size: 80px;
-    font-weight: 100;
-    margin-right: 0px  ;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+    font-size: 3rem; 
+    margin: 0;
+    line-height: 1; 
+}
+
+#title h1 span {
+    font-weight: bold;
 }
 
 li{
@@ -170,7 +182,16 @@ textarea {
     background-color: white;
     color: black;
 }
-
+footer {
+    text-align: center;
+    color: white;
+    padding: 20px 10px;
+    background-color: #222a30; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
 @media screen and (max-width: 760px){
 
