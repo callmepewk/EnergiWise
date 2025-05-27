@@ -13,6 +13,24 @@
             height: auto;
             vertical-align: middle;
         }
+        #chamado-btn {
+    background-color: rgb(35, 175, 145);
+    font-size: large;
+    font-weight: 200;
+    border: 2px solid rgb(35, 175, 145);
+    padding: 25px;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+#chamado-btn:hover {
+    background-color: white;
+    color: rgb(35, 175, 145);
+    transition: 0.3s all;
+}
     </style>
 </head>
 <body>
@@ -55,14 +73,12 @@
             <p>
                Acesse seu painel personalizado para acompanhar o consumo de energia, gerenciar seus serviços e descobrir insights sob medida. Ainda não tem uma conta? Cadastre-se abaixo.
             </p>
-<form action="/cadastro.html">
-  <input type="submit" value="Comece por aqui" id="start-btn">
-</form>
+<a href="cadastro.html" id="chamado-btn">Comece por aqui</a>
 
         </aside>
 
         <article>
-            <img src="logosfnd.png" alt="User Account" style=" max-width: 800px; width: 500px; height: 500px; display: block; margin: 0 auto;">
+            <img src="logosfnd.png" alt="User Account" style=" max-width: 800px; width: 450px; height: auto; display: block; margin: 0 auto;">
         </article>
     </main>
 
