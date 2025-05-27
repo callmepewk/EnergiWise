@@ -49,11 +49,11 @@
             margin-top: 10px;
         }
         input[type="submit"] {
-    background-color: #04aa6d; /* cor verde semelhante */
+    background-color: #04aa6d;
     color: white;
     padding: 12px 24px;
     border: none;
-    border-radius: 20px; /* arredondado */
+    border-radius: 20px; 
     font-size: 20px;
     cursor: pointer;
     font-family: 'Times New Roman', Times, serif;
@@ -205,7 +205,7 @@ input[name="senha"] {
                     <input type="tel" name="telefone" placeholder="Telefone" required />
                     <input type="text" name="cpf" placeholder="CPF" required />
                     <fieldset id="enderecos">
-                        <legend style="color: white;">Endereço(s)</legend>
+                        <legend style="color: white;">Endereço Principal</legend>
                         ${enderecoHTML}
                     </fieldset>
                     <button type="button" class="btn-add-endereco" onclick="adicionarEndereco()">Adicionar outro endereço</button>
@@ -228,7 +228,7 @@ input[name="senha"] {
 
         function gerarCamposEndereco() {
             return `
-                <div class="endereco">
+                <div class="endereco-principal">
                     <input type="text" name="cep[]" placeholder="CEP" required onblur="buscarEndereco(this.value)" />
                     <input type="text" name="pais[]" placeholder="País" required />
                     <input type="text" name="estado[]" placeholder="Estado" required />
@@ -310,7 +310,10 @@ input[name="senha"] {
   <script src="mostra-senha.js" defer></script>
 
 </div>
-
+<p style="margin-top: 20px; font-size: 20px; color: white;">
+    Já tem uma conta?
+    <a href="entrar.html" style="color: aqua; text-decoration: underline;">Clique aqui para entrar</a>
+</p>
 <br>
 <label class="checkbox-label">
   <input type="checkbox" required />
@@ -349,6 +352,7 @@ input[name="senha"] {
       modal.style.display = "none";
     }
   };
+  
 </script>
 
 </label>
@@ -356,7 +360,7 @@ input[name="senha"] {
 
         <input type="submit" value="Cadastrar" />
         <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="/perfil.html" />
+        <input type="hidden" name="_next" value="perfil.html" />
         </label>
     </form>
 </main>
