@@ -238,7 +238,83 @@ h3{
   color: #333;
   max-width: 500px;
 }
+@media (max-width: 768px) {
+  #title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  text-align: center;
+}
+
+#title h1 {
+  font-size: 32px;
+  margin: 0 5px;
+}
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  ul li {
+    margin: 5px 0;
+  }
+
+  .logo {
+    width: 100px;
+    height: auto;
+  }
+  #game-container {
+    width: 100%;
+    height: 250px;
+    border: none;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  #play-button, #restart-button {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  #hud h2, #hud h3 {
+    font-size: 24px;
+  }
+
+  #hud button, #hud select {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  #instructions-popup {
+    padding: 15px;
+    font-size: 14px;
+    width: 90%;
+  }
+
+  .passos-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .passo, .topico {
+    width: 90%;
+  }
+}
+
     </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
     <header style="padding-top: 0px">  
@@ -272,7 +348,6 @@ h3{
 </ul>
     </header>
 
-<body>
   <div id="game-container">
    <div id="hud">
   <div id="main-menu">
@@ -307,7 +382,7 @@ h3{
 }
 
 function startGame() {
-  document.getElementById("hud").style.display = "none";
+  document.getElementById("hud").style.display = "none", "position: relative", "margin: auto";
   title.style.top = "10px";
   title.style.fontSize = "20px";
   title.style.color = "#23af91";
@@ -332,6 +407,15 @@ function toggleFullscreen() {
   } else {
     document.exitFullscreen();
   }
+function adjustCanvasForMobile() {
+  if (window.innerWidth < 768) {
+    canvas.width = window.innerWidth;
+    canvas.height = 250;
+  }
+}
+window.addEventListener('load', adjustCanvasForMobile);
+window.addEventListener('resize', adjustCanvasForMobile);
+
 }
 
 function changeLanguage() {
