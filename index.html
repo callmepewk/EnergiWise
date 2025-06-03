@@ -139,6 +139,105 @@ h3{
     color: #333;
     line-height: 1.4;
 }
+
+    #game-container {
+      position: relative;
+      width: 800px;
+      height: 300px;
+      margin: 80px auto;
+      border: 2px solid #000;
+      background: linear-gradient(#87CEEB, #fff);
+      transition: width 0.3s, height 0.3s;
+    }
+    :fullscreen #game-container,
+    :-webkit-full-screen #game-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0; 
+}
+
+    canvas {
+      display: block;
+    }
+    :fullscreen canvas,
+    :-webkit-full-screen canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+    #play-button, #restart-button {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #007F3F;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    #play-button {
+      top: 55%;
+    }
+
+    #restart-button {
+      bottom: 20px;
+      display: none;
+    }
+
+    #end-message, #info-message {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+    }
+    #hud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(135, 206, 235, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 5;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+#hud h2, #hud h3 {
+  color: white;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+#hud button, #hud select {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #007F3F;
+  color: white;
+}
+
+#instructions-popup {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  color: #333;
+  max-width: 500px;
+}
     </style>
 </head>
 <body>
@@ -148,13 +247,11 @@ h3{
     <h1>Energy</h1>
     <h1><span>Wise</span></h1>
 </div>
-
-        
-  
 <ul>
     <li><a href="index.html">Início</a></li>
     <li><a href="aboutus.html">Sobre Nós</a></li>
     <li><a href="productsandservices.html">Produtos e Serviços</a></li>
+    <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html">Contato</a></li>
     <li><a href="account.html" id="account-btn">Conta</a></li>
 <div class="language-selector">
@@ -174,9 +271,379 @@ h3{
 </div>
 </ul>
     </header>
-<!--Espaço para adição de imagem-->
 
- <h2 style="display: flex; align-items: center; justify-content: center; margin-top: 350px;">Economize sem perceber, controle sem complicar.</h2>
+<body>
+  <div id="game-container">
+   <div id="hud">
+  <div id="main-menu">
+    <h2>Wise Up your House</h2>
+    <button onclick="showInstructions()">Iniciar</button>
+    <button onclick="showOptions()">Opções</button>
+  </div>
+
+  <div id="options-menu" style="display: none;">
+    <label for="language">Idioma:</label>
+    <select id="language" onchange="changeLanguage()">
+      <option value="pt">Português</option>
+      <option value="en">English</option>
+    </select>
+    <button onclick="toggleFullscreen()">Modo Tela Cheia</button>
+    <button onclick="backToMainMenu()">⬅ Voltar</button>
+  </div>
+
+  <div id="instructions-popup" style="display: none;">
+    <h3>Instruções</h3>
+    <p id="instruction-text">
+      Você está controlando a <strong>Energy Wise</strong> com a missão de automatizar o gerenciamento de energia.
+      Pule sobre as <strong>contas de luz</strong> para diminuí-las, evite os obstáculos e chegue até a <strong>casa</strong>.
+    </p>
+    <button onclick="startGame()">Vamos lá!</button>
+  </div>
+</div>
+<script>
+    function showInstructions() {
+  document.getElementById("main-menu").style.display = "none";
+  document.getElementById("instructions-popup").style.display = "block";
+}
+
+function startGame() {
+  document.getElementById("hud").style.display = "none";
+  title.style.top = "10px";
+  title.style.fontSize = "20px";
+  title.style.color = "#23af91";
+  running = true;
+  requestAnimationFrame(animate);
+}
+
+function showOptions() {
+  document.getElementById("main-menu").style.display = "none";
+  document.getElementById("options-menu").style.display = "block";
+}
+
+function backToMainMenu() {
+  document.getElementById("options-menu").style.display = "none";
+  document.getElementById("main-menu").style.display = "block";
+}
+
+function toggleFullscreen() {
+  const elem = document.getElementById("game-container");
+  if (!document.fullscreenElement) {
+    elem.requestFullscreen().catch(err => alert(`Erro ao entrar em tela cheia: ${err.message}`));
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+function changeLanguage() {
+  const lang = document.getElementById("language").value;
+  const text = document.getElementById("instruction-text");
+
+  if (lang === "en") {
+    text.innerHTML = `You are controlling <strong>Energy Wise</strong> with the mission of automating energy management.
+      Jump on <strong>bills</strong> to reduce them, avoid obstacles, and reach the <strong>house</strong>.`;
+    document.querySelector('button[onclick="startGame()"]').textContent = "Let's Go!";
+    document.querySelector('button[onclick="showInstructions()"]').textContent = "Start";
+    document.querySelector('button[onclick="showOptions()"]').textContent = "Options";
+    document.querySelector('button[onclick="backToMainMenu()"]').textContent = "⬅ Back";
+    document.querySelector('label[for="language"]').textContent = "Language:";
+  } else {
+    text.innerHTML = `Você está controlando a <strong>Energy Wise</strong> com a missão de automatizar o gerenciamento de energia.
+      Pule nas <strong>contas de luz</strong> para diminuí-las, evite os obstáculos e chegue até a <strong>casa</strong>.`;
+    document.querySelector('button[onclick="startGame()"]').textContent = "Vamos lá!";
+    document.querySelector('button[onclick="showInstructions()"]').textContent = "Iniciar";
+    document.querySelector('button[onclick="showOptions()"]').textContent = "Opções";
+    document.querySelector('button[onclick="backToMainMenu()"]').textContent = "⬅ Voltar";
+    document.querySelector('label[for="language"]').textContent = "Idioma:";
+  }
+}
+</script>
+    <button id="play-button">Play</button>
+    <canvas id="gameCanvas" width="800" height="300"></canvas>
+    <div id="end-message"></div>
+    <div id="info-message"></div>
+    <button id="restart-button">Deseja jogar novamente?</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    const title = document.getElementById("title");
+    const playBtn = document.getElementById("play-button");
+    const restartBtn = document.getElementById("restart-button");
+    const endMessage = document.getElementById("end-message");
+    const infoMessage = document.getElementById("info-message");
+
+    let ground = canvas.height - 60; 
+
+let unit = canvas.width / 800;
+let player = {
+  x: 50,
+  y: ground - 50,
+  width: unit * 40,
+  height: unit * 50,
+  dy: 0,
+  jumping: false,
+  gravity: 1.0
+};
+
+
+    let keys = {};
+    let running = false;
+    let notificationTimer = 0;
+
+let obstacles = [];
+
+function generateObstacles() {
+  const unit = canvas.width / 800;
+  const groundLevel = ground;
+
+  obstacles = [
+    { type: 'bill', x: unit * 200, y: groundLevel - unit * 30, width: unit * 30, height: unit * 30, eliminated: false },
+    { type: 'pipe', x: unit * 320, y: groundLevel - unit * 50, width: unit * 40, height: unit * 50 },
+    { type: 'wall', x: unit * 420, y: groundLevel - unit * 50, width: unit * 30, height: unit * 50 },
+    { type: 'bill', x: unit * 530, y: groundLevel - unit * 30, width: unit * 30, height: unit * 30, eliminated: false },
+    { type: 'house', x: unit * 700, y: groundLevel - unit * 50, width: unit * 50, height: unit * 50 }
+  ];
+}
+window.onload = () => {
+  generateObstacles(); 
+};
+    document.addEventListener("keydown", e => keys[e.key] = true);
+    document.addEventListener("keyup", e => keys[e.key] = false);
+
+    playBtn.onclick = () => {
+      playBtn.style.display = "none";
+      title.style.top = "10px";
+      title.style.fontSize = "20px";
+      title.style.color = "#23af91";
+      running = true;
+      requestAnimationFrame(animate);
+    };
+
+    restartBtn.onclick = () => location.reload();
+
+function drawPlayer() {
+
+  ctx.fillStyle = "#228B22"; 
+  ctx.fillRect(player.x + player.width/2 - 5, player.y + 10, 10, player.height - 10);
+
+  
+  ctx.fillStyle = "#A9A9A9"; 
+  let centerX = player.x + player.width / 2;
+  let centerY = player.y + 10;
+
+  
+  for (let angle = 0; angle < 360; angle += 45) {
+    let rad = angle * Math.PI / 180;
+    let px = centerX + Math.cos(rad) * 15;
+    let py = centerY + Math.sin(rad) * 15;
+    ctx.beginPath();
+    ctx.ellipse(px, py, 8, 12, 0, 0, 2 * Math.PI);
+    ctx.fill();
+  }
+
+  
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, 10, 0, 2 * Math.PI);
+  ctx.fillStyle = "#696969"; 
+  ctx.fill();
+}
+
+function drawObstacles() {
+  for (let obs of obstacles) {
+    if (obs.type === 'bill' && !obs.eliminated) {
+      
+      ctx.fillStyle = "white";
+      ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+      ctx.strokeStyle = "#ccc";
+      ctx.strokeRect(obs.x, obs.y, obs.width, obs.height);
+
+      
+      ctx.strokeStyle = "#bbb";
+      for (let i = 1; i <= 4; i++) {
+        let y = obs.y + 5 + i * 6;
+        ctx.beginPath();
+        ctx.moveTo(obs.x + 5, y);
+        ctx.lineTo(obs.x + obs.width - 5, y);
+        ctx.stroke();
+      }
+
+    } else if (obs.type === 'pipe') {
+      
+      ctx.fillStyle = "#808080"; 
+
+      
+      ctx.fillRect(obs.x, obs.y + 10, obs.width, obs.height - 10);
+
+      
+      ctx.beginPath();
+      ctx.ellipse(obs.x + obs.width / 2, obs.y + 10, obs.width / 2, 10, 0, Math.PI, 0, true);
+      ctx.fill();
+
+      
+      ctx.strokeStyle = "#606060";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(obs.x, obs.y + 10);
+      ctx.lineTo(obs.x + obs.width, obs.y + 10);
+      ctx.stroke();
+
+    } else if (obs.type === 'wall') {
+      
+
+      let brickWidth = obs.width / 2;
+      let brickHeight = obs.height / 3;
+
+      for (let row = 0; row < 3; row++) {
+        for (let col = 0; col < 2; col++) {
+          let bx = obs.x + col * brickWidth - (row % 2) * (brickWidth / 2);
+          let by = obs.y + row * brickHeight;
+
+          ctx.fillStyle = "#B22222"; 
+          ctx.fillRect(bx, by, brickWidth, brickHeight - 2);
+
+          ctx.strokeStyle = "#7B1A1A"; 
+          ctx.strokeRect(bx, by, brickWidth, brickHeight - 2);
+        }
+      }
+
+    } else if (obs.type === 'house') {
+      
+
+     
+      ctx.fillStyle = "#8B4513"; 
+      ctx.fillRect(obs.x, obs.y + 15, obs.width, obs.height - 15);
+
+      
+      ctx.fillStyle = "#B22222";
+      ctx.beginPath();
+      ctx.moveTo(obs.x - 10, obs.y + 15);
+      ctx.lineTo(obs.x + obs.width / 2, obs.y - 10);
+      ctx.lineTo(obs.x + obs.width + 10, obs.y + 15);
+      ctx.closePath();
+      ctx.fill();
+
+      
+      ctx.fillStyle = "#654321"; 
+      ctx.fillRect(obs.x + obs.width / 2 - 10, obs.y + obs.height - 30, 20, 30);
+
+     
+      ctx.strokeStyle = "#432a12";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(obs.x + obs.width / 2, obs.y + obs.height - 30);
+      ctx.lineTo(obs.x + obs.width / 2, obs.y + obs.height);
+      ctx.stroke();
+    }
+  }
+}
+
+    function showTemporaryMessage(msg) {
+      infoMessage.textContent = msg;
+      notificationTimer = 90; 
+    }
+
+    function checkCollisions() {
+      for (let obs of obstacles) {
+        if (obs.type === 'bill' && !obs.eliminated &&
+          player.x < obs.x + obs.width &&
+          player.x + player.width > obs.x &&
+          player.y + player.height > obs.y &&
+          player.y + player.height < obs.y + obs.height + 10
+        ) {
+          obs.eliminated = true;
+          showTemporaryMessage("Diminuição da Conta de Luz");
+        }
+
+        if ((obs.type === 'pipe' || obs.type === 'wall') &&
+          player.x + player.width > obs.x &&
+          player.x < obs.x + obs.width &&
+          player.y + player.height > obs.y
+        ) {
+          
+          if (player.x < obs.x) {
+            player.x = obs.x - player.width;
+          } else {
+            player.x = obs.x + obs.width;
+          }
+        }
+
+        if (obs.type === 'house' &&
+          player.x + player.width > obs.x &&
+          player.x < obs.x + obs.width &&
+          player.y + player.height > obs.y
+        ) {
+          running = false;
+          endMessage.textContent = "Automação de Gerenciamento de Energia Ativada!";
+          restartBtn.style.display = "block";
+        }
+      }
+    }
+
+    function animate() {
+      if (!running) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      
+      ctx.fillStyle = "#87CEEB";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      
+      ctx.fillStyle = "#654321";
+      ctx.fillRect(0, ground, canvas.width, canvas.height - ground);
+
+      drawObstacles();
+      drawPlayer();
+      checkCollisions();
+
+      
+      if (keys["ArrowLeft"] || keys["a"]) player.x -= 1.5;
+      if (keys["ArrowRight"] || keys["d"]) player.x += 1.5;
+      if ((keys["ArrowUp"] || keys["w"]) && !player.jumping) {
+        player.dy = -20;
+        player.jumping = true;
+      }
+
+       player.y += player.dy;
+       player.dy += 0.7;
+
+      if (player.y > ground - player.height) {
+        player.y = ground - player.height;
+        player.dy = 0;
+        player.jumping = false;
+      }
+
+      if (notificationTimer > 0) {
+        notificationTimer--;
+        if (notificationTimer === 0) {
+          infoMessage.textContent = "";
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+      function resizeCanvas() {
+    const canvas = document.getElementById("gameCanvas");
+
+    if (document.fullscreenElement) {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    } else {
+      canvas.width = 800;
+      canvas.height = 300;
+    }
+    ground = canvas.height * 0.75;
+    generateObstacles();
+  }
+
+  document.addEventListener("fullscreenchange", resizeCanvas);
+  window.addEventListener("resize", () => {
+    if (document.fullscreenElement) resizeCanvas();
+  });
+  </script>
+
+ <h2 style="display: flex; align-items: center; justify-content: center; margin-top: 200px;">Economize sem perceber, controle sem complicar.</h2>
 
 <div class="chamado">
 
