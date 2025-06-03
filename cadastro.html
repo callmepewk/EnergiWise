@@ -23,7 +23,8 @@
         }
 
         form {
-            width: 600px;
+            max-width: 600px;
+            width: 100%;
             background-color: #222;
             padding: 20px;
             border-radius: 8px;
@@ -149,8 +150,10 @@ input[name="senha"] {
   max-width: 600px;
   color: #000;
   font-family: Arial, sans-serif;
+  max-height: 80vw; 
   line-height: 1.6;
   text-align: center;
+  overflow-y: auto;
 }
 .modal-content p {
   padding: 40px;
@@ -179,6 +182,48 @@ input[name="senha"] {
   font-family: inherit;
   padding: 0;
 }
+@media (max-width: 768px) {
+    form h2 {
+        font-size: 36px;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 10px;
+    }
+
+    input, select {
+        font-size: 16px;
+    }
+
+    .btn-add-endereco {
+        width: 100%;
+    }
+
+    .checkbox-label {
+        font-size: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+        margin-bottom: 10px;
+    }
+
+    .senha-container button {
+        font-size: 16px;
+    }
+        #title {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #title img {
+        margin-bottom: 10px;
+    }
+}
+
 
 
     </style>
@@ -216,7 +261,7 @@ input[name="senha"] {
                     <input type="text" name="nome_social" placeholder="Nome Social" required />
                     <input type="text" name="cnpj" placeholder="CNPJ" required />
                     <input type="email" name="email" placeholder="Seu e-mail" required />
-                    <input type="tel" name="telefone" placeholder="Telefone" required />
+                    <input type="tel" id="telefone" name="telefone" required placeholder="Telefone" />
                     <fieldset id="enderecos">
                         <legend style="color: white;">Endereço(s)</legend>
                         ${enderecoHTML}
@@ -248,6 +293,7 @@ input[name="senha"] {
             console.log("Buscar endereço para o CEP: ", cep);
         }
     </script>
+
 </head>
 <body>
 
@@ -277,8 +323,8 @@ input[name="senha"] {
 
 </header>
 
-<main style="margin-top: 40px; display: flex; justify-content: center;">
-    <form action="https://formsubmit.co/energiwise@gmail.com" method="POST">
+<main style="margin-top: 40px; display: flex; justify-content: center; padding: 0 16px;">
+    <form id="form-cadastro">
         <h2 style="font-size: 50px; margin-bottom: 30px; font-weight: 300; font-family: 'Times New Roman', Times, serif; color: white;">
           <span>Cadastro</span>
         </h2>
@@ -320,20 +366,81 @@ input[name="senha"] {
   <span>
     Li e concordo com os <button type="button" onclick="abrirModal()" class="link-button">termos de uso</button></a> e com o uso de dados conforme a LGPD.
   </span>
-  <!-- Modal de Termos e Condições -->
 <div id="modal-termos" class="modal">
   <div class="modal-content">
     <button type="button" class="fechar" onclick="fecharModal()" aria-label="Fechar termos">
   &times;
 </button>
-    <h3>Termos de Uso</h3>
+    <h3>Termos de Uso e Política de Privacidade</h3>
     <p>
-      Estes são os termos de uso do EnergyWise. Ao se cadastrar, você concorda com o tratamento de seus dados pessoais conforme a Lei Geral de Proteção de Dados (LGPD). Seus dados serão utilizados apenas para fins de autenticação e prestação de serviços. Não compartilhamos suas informações com terceiros sem consentimento.
+      🛡️ Termos de Uso e Política de Privacidade <br>
+1. Aceitação dos Termos
+Ao se cadastrar na plataforma EnergyWise, você concorda com estes Termos de Uso e com a Política de Privacidade aqui descrita. Caso não concorde, não prossiga com o cadastro.
+<br>
+<br>
+2. Coleta e Uso de Dados
+Os dados informados no formulário (nome, e-mail, telefone, CPF/CNPJ, endereço, etc.) são coletados com a finalidade de:
+
+Criar e manter sua conta;
+
+Entrar em contato com você quando necessário;
+
+Personalizar e aprimorar sua experiência na plataforma;
+
+Cumprir obrigações legais e regulatórias.
+<br>
+<br>
+3. Compartilhamento de Dados
+Seus dados não serão compartilhados com terceiros, exceto:
+
+Se exigido por lei ou ordem judicial;
+
+Com prestadores de serviço essenciais para o funcionamento da plataforma (com compromisso de confidencialidade);
+
+Com seu consentimento explícito.
+<br>
+<br>
+4. Armazenamento e Segurança
+Utilizamos medidas técnicas e organizacionais adequadas para proteger seus dados contra acesso não autorizado, perda, alteração ou divulgação indevida.
+<br>
+<br>
+5. Direitos do Usuário (Conforme LGPD)
+Você poderá, a qualquer momento:
+
+Acessar os dados fornecidos;
+
+Corrigir ou atualizar informações;
+
+Revogar o consentimento;
+
+Solicitar a exclusão dos dados (direito ao esquecimento);
+
+Solicitar portabilidade dos dados.
+
+Para exercer seus direitos, entre em contato pelo e-mail: energiwise@gmail.com.
+<br>
+<br>
+6. Responsabilidades do Usuário
+Fornecer informações verdadeiras e atualizadas;
+
+Manter seus dados de acesso em sigilo;
+
+Não utilizar a plataforma para fins ilegais ou não autorizados.
+
+O descumprimento destes termos pode levar à suspensão ou exclusão da conta, sem aviso prévio.
+<br>
+<br>
+7. Alterações nos Termos
+Reservamo-nos o direito de alterar estes termos a qualquer momento. Mudanças relevantes serão comunicadas por e-mail ou notificação no site.
+<br>
+<br>
+8. Foro
+Em caso de conflitos, fica eleito o foro da comarca de [sua cidade ou estado], com renúncia a qualquer outro, por mais privilegiado que seja.
     </p>
     <p>
-      É responsabilidade do usuário fornecer informações verídicas. O descumprimento destes termos pode acarretar em suspensão da conta ou outras medidas cabíveis.
+      ✅ Conformidade com a LGPD: <br>
+Ao marcar a caixa de seleção, você declara ter lido e compreendido os Termos de Uso e a Política de Privacidade, e autoriza o tratamento dos seus dados pessoais nos termos da LGPD (Lei 13.709/2018).
     </p>
-    <!-- Adicione mais conteúdo conforme necessário -->
   </div>
 </div>
 <script>
@@ -345,14 +452,65 @@ input[name="senha"] {
     document.getElementById("modal-termos").style.display = "none";
   }
 
-  // Fecha o modal ao clicar fora do conteúdo
+
   window.onclick = function(event) {
     const modal = document.getElementById("modal-termos");
     if (event.target === modal) {
       modal.style.display = "none";
     }
   };
-  
+document.getElementById("form-cadastro").addEventListener("submit", function (e) {
+    e.preventDefault(); 
+
+    const tipoConta = document.getElementById("tipo-conta").value;
+    const tipoPessoa = document.getElementById("tipo-pessoa")?.value || '';
+    const senha = document.getElementById("senha").value;
+
+    const formData = {
+        tipoConta,
+        tipoPessoa,
+        senha,
+        enderecos: []
+    };
+
+    const campos = document.querySelectorAll("#secao-campos input");
+    campos.forEach(input => {
+        if (!input.name.includes("[]")) {
+            formData[input.name] = input.value;
+        }
+    });
+
+    const enderecosDOM = document.querySelectorAll(".endereco-principal");
+    enderecosDOM.forEach(div => {
+        const endereco = {
+            cep: div.querySelector('[name="cep[]"]').value,
+            pais: div.querySelector('[name="pais[]"]').value,
+            estado: div.querySelector('[name="estado[]"]').value,
+            cidade: div.querySelector('[name="cidade[]"]').value,
+            numero: div.querySelector('[name="numero[]"]').value,
+            complemento: div.querySelector('[name="complemento[]"]').value
+        };
+        formData.enderecos.push(endereco);
+    });
+
+localStorage.setItem("cadastroEnergyWise", JSON.stringify(formData));
+localStorage.setItem("usuario", JSON.stringify(formData));
+localStorage.setItem("loggedIn, true");
+
+if (formData.nome) {
+    sessionStorage.setItem("usuarioNome", formData.nome);
+} else if (formData.razao_social) {
+    sessionStorage.setItem("usuarioNome", formData.razao_social);
+}
+
+sessionStorage.setItem("usuarioEmail", formData.email);
+sessionStorage.setItem("usuarioLogado", JSON.stringify(formData));
+
+sessionStorage.setItem("loggedIn", "true");
+
+window.location.href = "perfil.html";
+
+});
 </script>
 
 </label>
