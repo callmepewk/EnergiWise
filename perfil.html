@@ -13,6 +13,44 @@
             height: auto;
             vertical-align: middle;
         }
+        @media (max-width: 768px) {
+  #title {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #title img {
+    margin-bottom: 10px;
+  }
+
+  main h2 {
+    font-size: 36px !important;
+  }
+
+  main ul {
+    font-size: 20px !important;
+  }
+
+  main div[style*="display: flex"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 30px !important;
+  }
+
+  .language-btn {
+    font-size: 14px;
+  }
+
+  .language-dropdown {
+    font-size: 14px;
+  }
+
+  footer {
+    padding: 20px;
+  }
+}
+
     </style>
 </head>
 <body>
@@ -23,13 +61,13 @@
     <h1>Energy</h1>
     <h1><span>Wise</span></h1>
 </div>
-
-    <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="aboutus.html">Sobre Nós</a></li>
-        <li><a href="productsandservices.html">Produtos e Serviços</a></li>
-        <li><a href="contact.html">Contato</a></li>
-        <li><a href="account.html" id="account-btn">Conta</a></li>
+<ul>
+    <li><a href="index.html">Início</a></li>
+    <li><a href="aboutus.html">Sobre Nós</a></li>
+    <li><a href="productsandservices.html">Produtos e Serviços</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contato</a></li>
+    <li><a href="account.html" id="account-btn">Conta</a></li>
 <div class="language-selector">
     <button class="language-btn">
         <img src="https://flagcdn.com/w40/br.png" alt="Português" />
@@ -44,11 +82,10 @@
         <li><img src="https://flagcdn.com/w40/cn.png" alt="中文" /> 中文</li>
         <li><img src="https://flagcdn.com/w40/sa.png" alt="العربية" /> العربية</li>
     </ul>
-    
 </div>
     </ul>
 </header>
-<main style="margin-top: 40px; max-width: 900px; margin-left: auto; margin-right: auto; color: white; font-family: 'Times New Roman', Times, serif;">
+<main style="margin-top: 40px; padding: 0 16px; max-width: 900px; margin-left: auto; margin-right: auto; color: white; font-family: 'Times New Roman', Times, serif;">
   <div style="display: flex; justify-content: flex-start; align-items: flex-start; gap: 60px; flex-wrap: wrap;">
 
     <div>
@@ -63,7 +100,8 @@
         <a href="editar-perfil.html" style="color: white; text-decoration: none;">Editar perfil</a>
       </li>
       <li>
-        <button onclick="confirmarSaida()" class="link-button" style="color: white; background: none; border: none; cursor: pointer; font-size: 20px; text-decoration: underline;">Sair da conta</button>
+        <button onclick="confirmarSaida()" class="link-button" style="color: white; background: none; border: none; cursor: pointer; font-size: 20px; text-decoration: underline;" aria-label="Sair da conta">
+
       </li>
     </ul>
 
@@ -73,19 +111,31 @@
 
 
 <script>
-const usuario = JSON.parse(sessionStorage.getItem('usuarioLogado'));
-if (!usuario) {
+const usuarioSessao = JSON.parse(sessionStorage.getItem('usuarioLogado'));
+const dadosLocal = JSON.parse(localStorage.getItem('cadastroEnergyWise'));
+
+if (!usuarioSessao) {
+  // Usuário não está logado, manda para login
   window.location.href = "entrar.html";
+} else if (!dadosLocal) {
+  // Usuário está "logado" mas não tem dados no localStorage (conta excluída)
+  alert('Sua conta foi excluída. Por favor, faça login ou crie uma nova conta.');
+  sessionStorage.removeItem('usuarioLogado');
+  localStorage.removeItem('loggedIn'); 
+  window.location.href = "account.html";
 } else {
-  document.getElementById('bem-vindo').textContent = `Bem-vindo, ${usuario.nome}`;
+ 
+  document.getElementById('user-name').textContent = usuarioSessao.nome || "[Nome]";
 }
+
   
-  function confirmarSaida() {
-    if (confirm("Deseja realmente sair?")) {
-      sessionStorage.clear();
-      window.location.href = "index.html";
-    }
+function confirmarSaida() {
+  if (confirm("Deseja realmente sair?")) {
+    sessionStorage.removeItem('usuarioLogado'); 
+    sessionStorage.removeItem("loggedIn");
+    window.location.href = "account.html";
   }
+}
 </script>
 
 <footer style="margin-top: 100px; text-align: center; color: white;">
