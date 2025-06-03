@@ -85,6 +85,7 @@
             <li><a href="index.html">Início</a></li>
             <li><a href="aboutus.html">Sobre Nós</a></li>
             <li><a href="productsandservices.html">Produtos e Serviços</a></li>
+            <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contato</a></li>
             <li><a href="account.html" id="account-btn">Conta</a></li>
 <div class="language-selector">
@@ -103,6 +104,118 @@
     </ul>
     
 </div>
+<script>
+// Atenção ao direcionamento que eu deixei
+function showLoginPrompt() {
+  // Cria o overlay do pop-up
+  const overlay = document.createElement('div');
+  overlay.style.position = 'fixed';
+  overlay.style.top = 0;
+  overlay.style.left = 0;
+  overlay.style.width = '100vw';
+  overlay.style.height = '100vh';
+  overlay.style.backgroundColor = 'rgba(34, 42, 48, 0.9)'; // cor escura do site
+  overlay.style.display = 'flex';
+  overlay.style.flexDirection = 'column';
+  overlay.style.justifyContent = 'center';
+  overlay.style.alignItems = 'center';
+  overlay.style.zIndex = 9999;
+
+  // Caixa do pop-up
+  const popup = document.createElement('div');
+  popup.style.backgroundColor = '#222a30'; // cor fundo do site
+  popup.style.padding = '30px 40px';
+  popup.style.borderRadius = '15px';
+  popup.style.textAlign = 'center';
+  popup.style.maxWidth = '400px';
+  popup.style.boxShadow = '0 0 15px rgb(35, 175, 145)';
+  popup.style.fontFamily = "'Times New Roman', Times, serif";
+  popup.style.color = 'white';
+  popup.style.fontSize = '20px';
+
+  // Texto do pop-up
+  const message = document.createElement('p');
+  message.textContent = 'Para acessar nossos produtos e serviços, entre ou cadastre-se';
+  message.style.marginBottom = '25px';
+  message.style.lineHeight = '1.4';
+
+  // Container para os botões
+  const buttonsContainer = document.createElement('div');
+  buttonsContainer.style.display = 'flex';
+  buttonsContainer.style.justifyContent = 'center';
+  buttonsContainer.style.gap = '30px';
+
+  // Botão Entrar
+  const btnLogin = document.createElement('button');
+  btnLogin.textContent = 'Entrar';
+  btnLogin.style.backgroundColor = 'rgb(35, 175, 145)';
+  btnLogin.style.border = 'none';
+  btnLogin.style.borderRadius = '20px';
+  btnLogin.style.color = 'white';
+  btnLogin.style.fontFamily = "'Times New Roman', Times, serif";
+  btnLogin.style.fontSize = '18px';
+  btnLogin.style.padding = '12px 25px';
+  btnLogin.style.cursor = 'pointer';
+  btnLogin.style.minWidth = '120px';
+  btnLogin.onmouseover = () => {
+    btnLogin.style.backgroundColor = 'white';
+    btnLogin.style.color = 'rgb(35, 175, 145)';
+  };
+  btnLogin.onmouseout = () => {
+    btnLogin.style.backgroundColor = 'rgb(35, 175, 145)';
+    btnLogin.style.color = 'white';
+  };
+  btnLogin.onclick = () => window.location.href = 'entrar.html';
+
+  // Botão Cadastrar-se
+  const btnRegister = document.createElement('button');
+  btnRegister.textContent = 'Cadastrar-se';
+  btnRegister.style.backgroundColor = 'rgb(35, 175, 145)';
+  btnRegister.style.border = 'none';
+  btnRegister.style.borderRadius = '20px';
+  btnRegister.style.color = 'white';
+  btnRegister.style.fontFamily = "'Times New Roman', Times, serif";
+  btnRegister.style.fontSize = '18px';
+  btnRegister.style.padding = '12px 25px';
+  btnRegister.style.cursor = 'pointer';
+  btnRegister.style.minWidth = '120px';
+  btnRegister.onmouseover = () => {
+    btnRegister.style.backgroundColor = 'white';
+    btnRegister.style.color = 'rgb(35, 175, 145)';
+  };
+  btnRegister.onmouseout = () => {
+    btnRegister.style.backgroundColor = 'rgb(35, 175, 145)';
+    btnRegister.style.color = 'white';
+  };
+  btnRegister.onclick = () => window.location.href = 'cadastro.html';
+
+  // Adiciona botões no container
+  buttonsContainer.appendChild(btnLogin);
+  buttonsContainer.appendChild(btnRegister);
+
+  // Monta o popup
+  popup.appendChild(message);
+  popup.appendChild(buttonsContainer);
+
+  // Adiciona popup no overlay
+  overlay.appendChild(popup);
+
+  // Adiciona overlay no body
+  document.body.appendChild(overlay);
+}
+
+// Verifica se está logado
+const loggedIn = localStorage.getItem('loggedIn');
+if (loggedIn !== 'true') {
+  // Bloqueia acesso e mostra o pop-up
+  showLoginPrompt();
+
+  // Impede que o usuário interaja com a página abaixo do pop-up
+  document.body.style.overflow = 'hidden';
+}
+
+</script>
+
         </ul>
     </header>
 
