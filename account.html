@@ -31,9 +31,69 @@
     color: rgb(35, 175, 145);
     transition: 0.3s all;
 }
+@media screen and (max-width: 768px) {
+  header ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  #title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .language-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  #chamado-btn {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 15px;
+    text-align: center;
+  }
+
+  article img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
     </style>
 </head>
 <body>
+    <script>
+
+    const usuario = sessionStorage.getItem('usuarioLogado');
+    const loggedIn = localStorage.getItem('loggedIn');
+if (usuario) {
+  window.location.href = 'perfil.html';
+}
+
+    if (usuario) {
+        window.location.href = 'perfil.html';
+    }
+</script>
 
     <header style="padding-top: 0px">  
 <div id="title">
@@ -41,14 +101,13 @@
     <h1>Energy</h1>
     <h1><span>Wise</span></h1>
 </div>
-        
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="aboutus.html">Sobre Nós</a></li>
-            <li><a href="productsandservices.html">Produtos e Serviços</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contato</a></li>
-            <li><a href="account.html" id="account-btn">Conta</a></li>
+<ul>
+    <li><a href="index.html">Início</a></li>
+    <li><a href="aboutus.html">Sobre Nós</a></li>
+    <li><a href="productsandservices.html">Produtos e Serviços</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contato</a></li>
+    <li><a href="account.html" id="account-btn">Conta</a></li>
 <div class="language-selector">
     <button class="language-btn">
         <img src="https://flagcdn.com/w40/br.png" alt="Português" />
@@ -63,9 +122,7 @@
         <li><img src="https://flagcdn.com/w40/cn.png" alt="中文" /> 中文</li>
         <li><img src="https://flagcdn.com/w40/sa.png" alt="العربية" /> العربية</li>
     </ul>
-    
 </div>
-        </ul>
     </header>
 
     <main>
