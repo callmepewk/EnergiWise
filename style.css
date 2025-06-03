@@ -193,45 +193,6 @@ footer {
     flex-direction: column;
 }
 
-@media screen and (max-width: 760px){
-
-    body{
-        background-color: #222a30;
-    }
-    header{
-        flex-direction: column;
-    }
-
-    main{
-        flex-direction: column;
-    }
-
-    h2{
-        font-size: 30px;
-    }
-
-    form{
-        margin-top: 20px;
-        width: 100%;
-    }
-
-    input{
-        align-self:center ;
-    }
-
-    img{
-        margin-top: 0px;
-    }
-
-    p{
-        margin-top: 50px;
-    }
-
-    ul{
-        text-align: center;
-    }
-
-}
 #social-media {
     text-align: center;
     margin-top: 50px;
@@ -334,4 +295,127 @@ footer {
 
 .language-selector:hover .language-dropdown {
     display: block;
+}
+
+@media screen and (max-width: 760px) {
+    header {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    header ul {
+        flex-direction: column;
+        margin-left: 0;
+        gap: 5px;
+    }
+
+    #title {
+        margin: 10px 0;
+        flex-direction: column;
+    }
+
+    #title img {
+        width: 80px;
+        height: 80px;
+    }
+
+    #title h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    .logo-float,
+    .logo-article img,
+    img {
+        width: 100% !important;
+        height: auto !important;
+        margin: 10px auto;
+        display: block;
+    }
+
+    main {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    p {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    form {
+        width: 100%;
+    }
+    #start-btn,
+    form [type="submit"] {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        font-size: 16px;
+    }
+        footer {
+        padding: 30px 10px;
+    }
+
+    #social-media {
+        margin-top: 30px;
+    }
+
+    #social-media a {
+        font-size: 22px;
+    }
+        .language-selector {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .language-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .language-dropdown {
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
+
+    .language-dropdown li {
+        font-size: 14px;
+        padding: 8px;
+    }
+        h2 {
+        font-size: 26px;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 24px;
+        padding: 0 10px;
+    }
+
+    ul {
+        padding-left: 0;
+    }
+
+    li {
+        margin: 10px 0;
+    }
+
+    .link-button {
+        font-size: 14px;
+    }
+    * {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
 }
