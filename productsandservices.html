@@ -70,8 +70,37 @@
     .btn-adquirir:hover {
       background-color: #0056b3;
     }
+   @media screen and (max-width: 768px) {
+  header ul {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .dispositivos {
+    width: 90% !important;
+    max-width: 300px;
+  }
+
+  aside {
+    padding: 10px;
+  }
+
+  .language-selector {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #title {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
     </style>
 </head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
 
     <header style="padding-top: 0px">  
@@ -105,6 +134,15 @@
     
 </div>
 <script>
+  // Verifica se está logado
+const loggedIn = sessionStorage.getItem('loggedIn');
+const usuarioSessao = JSON.parse(sessionStorage.getItem('usuarioLogado'));
+const cadastroLocal = JSON.parse(localStorage.getItem('cadastroEnergyWise'));
+const loggedIn = localStorage.getItem('loggedIn');
+if (!loggedIn || loggedIn !== 'true') {
+  // Bloqueia acesso e mostra o pop-up
+  showLoginPrompt();
+}
 // Atenção ao direcionamento que eu deixei
 function showLoginPrompt() {
   // Cria o overlay do pop-up
@@ -202,13 +240,6 @@ function showLoginPrompt() {
 
   // Adiciona overlay no body
   document.body.appendChild(overlay);
-}
-
-// Verifica se está logado
-const loggedIn = localStorage.getItem('loggedIn');
-if (loggedIn !== 'true') {
-  // Bloqueia acesso e mostra o pop-up
-  showLoginPrompt();
 
   // Impede que o usuário interaja com a página abaixo do pop-up
   document.body.style.overflow = 'hidden';
